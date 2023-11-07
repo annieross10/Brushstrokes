@@ -17,17 +17,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages import get_messages
 
-class ArtworkList(ListView):
-    model = Artwork
-    queryset = Artwork.objects.filter(status=1).order_by('-created_on')
-    template_name = 'index.html'
-    context_object_name = 'artworks'
-    paginate_by = 6
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
-    
 
 def your_view(request):
     current_year = datetime.now().year
@@ -45,34 +35,19 @@ def gallery_view(request):
 def contact_view(request):
     return render(request, 'contact.html')
 
+
+
 def gallery_view(request):
     artworks = Artwork.objects.filter(status=1)  
     print(artworks)
     
     return render(request, 'gallery.html', {'artworks': artworks})
 
-
-class ArtworkDetail(View):
-    def get(self, request, slug, *args, **kwargs):
-        queryset = Artwork.objects.filter(status=1)
-        artwork = get_object_or_404(queryset, slug=slug)
-
-        return render(
-            request,
-            "artwork_detail.html",
-            {
-
-                "artwork": artwork,
-            },)
-    
-
-    def post(self, request, slug, *args, **kwargs):
-        queryset = Artwork.objects.filter(status=1)
-        artwork = get_object_or_404(queryset, slug=slug)    
-
-        return redirect('artwork-detail', slug=slug)
-    
-
+class ArtworkList(generic.ListView):
+    model = Artwork
+    queryset = Artwork.objects.filter(status=1).order_by('-created_on')
+    template_name = 'index.html'
+    paginate_by = 6
 
 @csrf_protect
 @require_http_methods(["GET", "POST"])
@@ -99,3 +74,71 @@ def contact_form(request):
         form = ContactForm()
 
     return render(request, 'contact.html', {'form': form})
+
+
+
+
+class ArtworkDetail(View):
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Artwork.objects.filter(status=1)
+        artwork = get_object_or_404(queryset, slug=slug)
+        comments = Comment.objects.filter(artwork=artwork, approved=True).order_by('created_on')
+        comment_form = CommentForm()
+
+        return render(
+            request,
+            "artwork_detail.html",
+            {
+                "comment_form": comment_form,
+                "artwork": artwork,
+                "comments": comments
+            },
+        )
+
+    def post(self, request, slug, *args, **kwargs):
+        queryset = Artwork.objects.filter(status=1)
+        artwork = get_object_or_404(queryset, slug=slug)
+
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.artwork = artwork
+            comment.approved = False
+            comment.save()
+            messages.success(request, 'Your comment is awaiting approval.')
+
+        return redirect('artwork-detail', slug=slug)
+
+    
+class ArtworkList(ListView):
+    model = Artwork
+    queryset = Artwork.objects.filter(status=1).order_by('-created_on')
+    template_name = 'index.html'
+    context_object_name = 'artworks'
+    paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+
+
+
+def search_view(request):
+    query = request.GET.get('q', '')
+    artworks = Artwork.objects.all()  
+
+    if query:
+
+        artworks = artworks.filter(
+            Q(title__icontains=query) |
+            Q(medium__icontains=query) |
+            Q(description__icontains=query)  
+        )
+
+    context = {
+        'artworks': artworks
+    }
+
+    return render(request, 'gallery.html', context)
+
