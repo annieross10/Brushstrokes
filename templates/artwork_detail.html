@@ -9,7 +9,14 @@
             <img src="{{ artwork.image.url }}" class="img-fluid rounded artwork-image image-slide-in artwork-image-centered" alt="{{ artwork.title }}">
         </div>
         <div class="col-md-6 mt-4 fade-in" id="right-column">
-            
+            <h3>{{ artwork.title }}</h3><br>
+            <p><strong>Medium:</strong> {{ artwork.medium }}</p>
+            <p><strong>Size:</strong> {{ artwork.size }}</p>
+            <p><strong>Year:</strong> {{ artwork.year_created }}</p>
+            <p><strong>Sold:</strong> {{ artwork.sold }}</p>
+            <p><strong>Description:</strong> {{ artwork.description }}</p>
         </div>
     </div>
 </div>
+
+

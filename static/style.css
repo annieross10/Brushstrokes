@@ -52,8 +52,75 @@ body {
   
   #gallery-button {
     position: absolute;
-    bottom: 72%; /* Adjust the bottom position as needed */
-    left: 50%; /* Center the button horizontally */
-    transform: translateX(-50%); /* Center the button horizontally */
-    z-index: 1; /* Ensure the button is above other elements */
+    bottom: 72%; 
+    left: 50%; 
+    transform: translateX(-50%);
+    z-index: 1; 
+  }
+
+  @media (max-width: 992px) {
+    #gallery-button {
+      bottom: 60%; 
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #gallery-button {
+      bottom: 40%; 
+    }
+  }
+  
+  @media (max-width:576px){
+    #gallery-button {
+    display:none
+  }
+  }
+
+
+
+.artwork-summary h1 {
+    font-size: 36px;
+    font-weight: 700;
+    padding: 15px;
+  }
+  
+  .artwork-summary h2{
+    font-weight: 400;
+    font-size:24;
+    padding-bottom: 10px;
+  
+  }
+  
+  .artwork-summary p {
+    font-size: 18px;
+    font-weight:300
+  }
+  
+  .artwork-container {
+    margin-top: 20px;
+  }
+  
+    
+  .animate-from-left {
+      animation: slideInFromLeft 1s ease both;
+  }
+  
+  /* Search Bar */
+#search_bar {
+    padding:  20px;
+  }
+  
+  input[type="text"] {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width:500px
+  }
+  
+  button[type="submit"] {
+    background-color: #6a819a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
   }
