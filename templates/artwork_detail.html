@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container my-4">
+    <a href="{% url 'gallery' %}">⬅ Back to Gallery</a>
+    <div class="row">
+        <div class="col-md-6 d-flex align-items-center justify-content-center" id="left-column">
+            <img src="{{ artwork.image.url }}" class="img-fluid rounded artwork-image image-slide-in artwork-image-centered" alt="{{ artwork.title }}">
+        </div>
+        <div class="col-md-6 mt-4 fade-in" id="right-column">
+            
+        </div>
+    </div>
+</div>
