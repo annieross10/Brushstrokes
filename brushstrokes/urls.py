@@ -12,6 +12,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='account_login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('search/', views.search_view, name='search'),
+    path('user_account/', views.user_account, name='user_account'),
     path('<slug:slug>/', views.ArtworkDetail.as_view(), name='artwork_detail'),
     path('artwork/<slug:slug>/', views.ArtworkDetail.as_view(), name='artwork-detail'),
 

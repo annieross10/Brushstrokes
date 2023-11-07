@@ -142,3 +142,13 @@ def search_view(request):
 
     return render(request, 'gallery.html', context)
 
+
+@login_required
+def user_account(request):
+    user = request.user  
+    
+    context = {
+        'user': user,
+    }
+
+    return render(request, 'account/user_account.html', context)
