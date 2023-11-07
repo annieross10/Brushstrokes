@@ -1,1 +1,1 @@
-web: gunicorn brushstrokes.wsgi --log-file -
+web: gunicorn blog.wsgi --log-file -

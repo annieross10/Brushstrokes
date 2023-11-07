@@ -1,3 +1,59 @@
+
+
+
 body {
     font-family: Poppins, sans-serif;
+  }
+  
+  .artwork-summary {
+    background-color:rgba(67, 64, 64, 0.482);
+    margin: 20px;
+    text-align: center;
+    color: white;
+  }
+  
+  
+  /* Index Page */
+  .image-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+  
+  #main-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(67, 64, 64, 0.482);
+    color: white;
+    padding: 30px;
+    width: 100%;
+  }
+  
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-size: 24px;
+    font-weight: normal;
+  }
+  
+  p {
+    font-size: 14px;
+    font-weight: normal;
+  }
+  
+  #gallery-button {
+    position: absolute;
+    bottom: 72%; /* Adjust the bottom position as needed */
+    left: 50%; /* Center the button horizontally */
+    transform: translateX(-50%); /* Center the button horizontally */
+    z-index: 1; /* Ensure the button is above other elements */
   }
