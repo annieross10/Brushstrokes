@@ -1,0 +1,1 @@
+web: gunicorn brushstrokes.wsgi --log-file -
