@@ -11,4 +11,34 @@
     </div>
 </section>
 
+<section class="contact-form mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p>Have questions or want to get in touch? Send us a message using the form below.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form action="{% url 'contact' %}" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <p id="success-message" style="color: rgb(48, 107, 174);">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </p>
+                    
+                    
+                    
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+                
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
 {% endblock %}
