@@ -17,4 +17,66 @@
     </div>
 </section>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mt-3 artwork-container">
+            <div class="row">
+                {% for artwork in artworks %}
+                <div class="col-md-3 mb-3">
+                    <div class="art-card">
+                        <a href="#" class="art-thumbnail" data-toggle="modal" data-target="#artworkModal"
+                            data-title="{{ artwork.title }}"
+                            data-artist="{{ artwork.artist }}"
+                            data-medium="{{ artwork.medium }}"
+                            data-description="{{ artwork.description }}"
+                            data-image="{{ artwork.image.url }}"
+                            data-size="{{ artwork.size }}"
+                            data-year_created="{{ artwork.year_created }}"
+                            data-sold="{{ artwork.sold }}"
+                            data-artwork-detail="{{ artwork.get_absolute_url }}"
+                            onclick="showArtworkModal(this)">
+                            <img src="{{ artwork.image.url }}" class="card-img-top" alt="{{ artwork.title }}">
+                            <div class="overlay">
+                                <p>{{ artwork.title }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for displaying artwork details -->
+<div class="modal fade custom-artwork-modal" id="artworkModal" tabindex="-1" role="dialog" aria-labelledby="artworkModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="artworkModalLabel">Artwork Details</h5>
+                <button id="exit-button" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="" id="artworkImage" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-md-6" id="artwork_information">
+                            <h3 id="artworkTitle"></h3>
+                            <p class="medium-description"><span id="artworkMedium"></span></p>
+                            <p class="size-description"><span id="artworkSize"></span></p>
+                            <p class="year_created"><span id="artworkYear_created"></span></p>
+                            <p class="sold"><span id="artworkSold"></span></p>
+                            <a id="artworkDetailLink" class="btn btn-primary btn-lg btn-block" data-artwork-detail="">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
