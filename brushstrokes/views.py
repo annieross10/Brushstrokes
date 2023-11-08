@@ -38,9 +38,7 @@ def contact_view(request):
 
 
 def gallery_view(request):
-    artworks = Artwork.objects.filter(status=1)  
-    print(artworks)
-    
+    artworks = Artwork.objects.filter(status=1) 
     return render(request, 'gallery.html', {'artworks': artworks})
 
 class ArtworkList(generic.ListView):
@@ -120,8 +118,6 @@ class ArtworkList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-
-
 
 
 def search_view(request):

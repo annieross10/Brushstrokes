@@ -21,8 +21,13 @@ class Artwork(models.Model):
     )
     sold = models.CharField(max_length=8, choices=STATUS_CHOICES, default='For Sale') 
     slug = models.SlugField(unique=True)
-    status = models.IntegerField(default=1)
     saved_by = models.ManyToManyField(User, related_name='saved_artworks', blank=True)
+    STATUS_CHOICES = (
+        (0, 'Draft'),
+        (1, 'Published'),
+    )
+    status = models.IntegerField(choices=STATUS_CHOICES, default=0)
+
     
     def save(self, *args, **kwargs):
         current_year = timezone.now().year
