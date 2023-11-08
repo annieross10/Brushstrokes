@@ -9,11 +9,10 @@ from cloudinary.models import CloudinaryField
 class Artwork(models.Model):
     title = models.CharField(max_length=200, unique=True)
     artist = models.CharField(max_length=100)
-    created_on = models.CharField(max_length=200)
+    created_on = models.DateTimeField()
     description = models.TextField()
     medium = models.TextField()
     image = CloudinaryField('image', default='placeholder')
-    excerpt = models.TextField(blank=True)
     size = models.CharField(max_length=50, default='') 
     year_created = models.PositiveIntegerField(default=timezone.now().year) 
     STATUS_CHOICES = (
