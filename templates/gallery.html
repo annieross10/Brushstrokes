@@ -79,4 +79,33 @@
     </div>
 </div>
 
+<script>
+    // JavaScript to handle the pop-up
+    function showArtworkModal(element) {
+        const artist = element.getAttribute('data-artist')
+        const title = element.getAttribute('data-title');
+        const medium = element.getAttribute('data-medium');
+        const image = element.getAttribute('data-image');
+        const artworkDetailLink = element.getAttribute('data-artwork-detail');
+        const size = element.getAttribute('data-size');
+        const sold = element.getAttribute('data-sold');
+        const year_created = element.getAttribute('data-year_created');
+
+        document.getElementById('artworkArtist').textContent = artist;
+        document.getElementById('artworkTitle').textContent = title;
+        document.getElementById('artworkMedium').textContent = medium;
+        document.getElementById('artworkSold').textContent = sold;
+        document.getElementById('artworkSize').textContent = size;
+        document.getElementById('artworkYear_created').textContent = year_created;
+        document.getElementById('artworkImage').setAttribute('src', image);
+
+        document.getElementById('artworkDetailLink').setAttribute('href', artworkDetailLink);
+
+        const userPosition = window.scrollY;
+        localStorage.setItem('userPosition', userPosition);
+
+        $('#artworkModal').modal('show');
+    }
+</script>
+
 {% endblock %}
