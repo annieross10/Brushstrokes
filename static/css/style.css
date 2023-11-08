@@ -124,3 +124,41 @@ body {
     border-radius: 5px;
     padding: 5px 10px;
   }
+
+  /* About */
+
+.artwork-summary h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.container p {
+  font-size: 18px;
+  color: #333;
+  font-size: 93%
+}
+#about-me {
+  padding: 15px;
+  background-color:#b9b9b942;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+#join-community-button{
+  padding: 15px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #6a819a;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #666b6f;
+}
