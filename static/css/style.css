@@ -104,26 +104,230 @@ body {
   .animate-from-left {
       animation: slideInFromLeft 1s ease both;
   }
+
   
-  /* Search Bar */
+  
+  @keyframes slideInFromLeft {
+    0%{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+  }
+
+
+
+/* Style for each artwork card */
+.art-card {
+  height: 400px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding:15px;
+  text-align: center;
+}
+.art-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Style for the art thumbnail images */
+.art-thumbnail {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+
+/* Modal */
+#artwork_information {
+  margin: 0 auto;
+}
+
+.custom-artwork-modal .modal-dialog {
+  max-width: 900px;
+  max-height: 80vh; /* Limit the maximum height to 80% of the viewport height */
+  margin: 10% auto; /* Center the modal vertically and horizontally */
+}
+
+.custom-artwork-modal .modal-content {
+  background-color: rgba(249, 249, 249, 0.9); /* Adjust the background color and transparency */
+  border-radius: 5px;
+}
+
+.custom-artwork-modal .modal-title {
+  display: none; /* Hide the modal title */
+}
+
+.custom-artwork-modal .modal-body {
+  text-align: center;
+  margin:0 auto;
+  padding: 10px
+}
+
+.custom-artwork-modal #artworkImage {
+  max-width: 100%; 
+  max-height: 100%; 
+  display: block; 
+  margin: 0 auto;
+  padding:5px;
+}
+.custom-artwork-modal #artworkTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333;
+}
+
+.custom-artwork-modal .medium-description {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #555;
+}
+
+.custom-artwork-modal #artworkDetailLink {
+  margin:auto;
+  background-color: #1c5da49f;
+  color: #fff;
+  text-align: center;
+  display: block;
+  border: none;
+  padding: 5px;
+  text-decoration: none;
+  max-width: 200px
+}
+
+.custom-artwork-modal .modal-header {
+  border: none; 
+}
+
+.custom-artwork-modal .close {
+  font-size: 15px;
+  color: #b1b1b1df;
+
+}
+
+
+/* Overlay and Hover on Artwork */
+.art-card {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0); 
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; 
+  transition: background-color 0.3s; 
+}
+
+.art-card:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.overlay p {
+  font-size: 16px;
+  margin: 0;
+  color: transparent; 
+  transition: color 0.3s; 
+}
+
+.art-card:hover .overlay p {
+  color: #fff; 
+}
+
+.search-form {
+  margin-right: 20px; 
+}
+
+
+/* Search Bar */
 #search_bar {
-    padding:  20px;
+  padding:  20px;
+}
+
+input[type="text"] {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width:500px
+}
+
+button[type="submit"] {
+  background-color: #6a819a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+/* Artwork Description */
+
+.artwork-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%; 
+  max-height: 500px; 
+  padding-right: 20px;
+}
+
+.artwork-image img {
+  max-width: 100%; 
+  max-height: 100%; 
+  width: auto;
+}
+
+#right-column {
+  padding: 20px;
+  background-color: rgba(161, 196, 192, 0.26);
+}
+
+#left-column {
+  padding-top: 15px;
+}
+
+.image-slide-in {
+  transform: translateX(-100%); 
+  animation: slideIn 1s forwards;
+}
+
+
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%); 
   }
-  
-  input[type="text"] {
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    max-width:500px
+  to {
+    transform: translateX(0); 
   }
-  
-  button[type="submit"] {
-    background-color: #6a819a;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
+}
+
+.fade-in {
+  opacity: 0; 
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
+
 
   /* About */
 
