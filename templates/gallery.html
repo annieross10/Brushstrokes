@@ -106,6 +106,45 @@
 
         $('#artworkModal').modal('show');
     }
+
+    // See More Button
+    document.getElementById('artworkDetailLink').addEventListener('click', function (event) {
+        event.preventDefault();
+        window.location.href = this.getAttribute('href');
+    });
+
+    // Exit Button
+    document.getElementById('exit-button').addEventListener('click', function (event) {
+        event.preventDefault();
+        $('#artworkModal').modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        const userPosition = localStorage.getItem('userPosition');
+        if (userPosition) {
+            window.scrollTo(0, userPosition);
+            localStorage.removeItem('userPosition');
+        } else {
+            window.scrollTo(0, 0);
+        }
+    });
+    // Search Bar
+    document.getElementById('search-button').addEventListener('click', function () {
+        const searchInput = document.getElementById('search-input').value.toLowerCase();
+        const artworks = document.querySelectorAll('.art-card');
+
+        artworks.forEach(function (artwork) {
+            const artist = artwork.querySelector('.art-thumbnail').getAttribute('data-artist').toLowerCase()
+            const title = artwork.querySelector('.art-thumbnail').getAttribute('data-title').toLowerCase();
+            const medium = artwork.querySelector('.art-thumbnail').getAttribute('data-medium').toLowerCase();
+            const description = artwork.querySelector('.art-thumbnail').getAttribute('data-description').toLowerCase();
+
+            if (artist.includes(searchInput) ||title.includes(searchInput) || medium.includes(searchInput) || description.includes(searchInput)) {
+                artwork.style.display = 'block';
+            } else {
+                artwork.style.display = 'none';
+            }
+        });
+    });
 </script>
 
 {% endblock %}
