@@ -2,112 +2,111 @@
 
 
 body {
-    font-family: Poppins, sans-serif;
-  }
-  
-  .artwork-summary {
-    background-color:rgba(67, 64, 64, 0.482);
-    margin: 20px;
-    text-align: center;
-    color: white;
-  }
-  
-  
-  /* Index Page */
-  .image-container {
-    position: relative;
-    width: 100%;
-    text-align: center;
-  }
-  
-  #main-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .text-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(67, 64, 64, 0.482);
-    color: white;
-    padding: 30px;
-    width: 100%;
-  }
-  
-  h1 {
-    font-size: 36px;
-    font-weight: bold;
-  }
-  
-  h2 {
-    font-size: 24px;
-    font-weight: normal;
-  }
-  
-  p {
-    font-size: 14px;
-    font-weight: normal;
-  }
-  
-  #gallery-button {
-    position: absolute;
-    bottom: 72%; 
-    left: 50%; 
-    transform: translateX(-50%);
-    z-index: 1; 
-  }
+  font-family: Poppins, sans-serif;
+}
 
-  @media (max-width: 992px) {
-    #gallery-button {
-      bottom: 60%; 
-    }
+.artwork-summary {
+  background-color:rgba(67, 64, 64, 0.482);
+  margin: 20px;
+  text-align: center;
+  color: white;
+}
+
+
+/* Index Page */
+.image-container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+#main-image {
+  width: 100%;
+  height: auto;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(67, 64, 64, 0.482);
+  color: white;
+  padding: 30px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+p {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+#gallery-button {
+  position: absolute;
+  bottom: 72%; /* Adjust the bottom position as needed */
+  left: 50%; /* Center the button horizontally */
+  transform: translateX(-50%); /* Center the button horizontally */
+  z-index: 1; /* Ensure the button is above other elements */
+}
+
+@media (max-width: 992px) {
+  #gallery-button {
+    bottom: 60%; 
   }
-  
-  @media (max-width: 768px) {
-    #gallery-button {
-      bottom: 40%; 
-    }
+}
+
+@media (max-width: 768px) {
+  #gallery-button {
+    bottom: 40%; 
   }
-  
-  @media (max-width:576px){
-    #gallery-button {
-    display:none
-  }
-  }
+}
+
+@media (max-width:576px){
+  #gallery-button {
+  display:none
+}
+}
+
 
 
 
 .artwork-summary h1 {
-    font-size: 36px;
-    font-weight: 700;
-    padding: 15px;
-  }
-  
-  .artwork-summary h2{
-    font-weight: 400;
-    font-size:24;
-    padding-bottom: 10px;
-  
-  }
-  
-  .artwork-summary p {
-    font-size: 18px;
-    font-weight:300
-  }
-  
-  .artwork-container {
-    margin-top: 20px;
-  }
-  
-    
-  .animate-from-left {
-      animation: slideInFromLeft 1s ease both;
-  }
+  font-size: 36px;
+  font-weight: 700;
+  padding: 15px;
+}
+
+.artwork-summary h2{
+  font-weight: 400;
+  font-size:24;
+  padding-bottom: 10px;
+
+}
+
+.artwork-summary p {
+  font-size: 18px;
+  font-weight:300
+}
+
+.artwork-container {
+  margin-top: 20px;
+}
 
   
-  
-  @keyframes slideInFromLeft {
+.animate-from-left {
+    animation: slideInFromLeft 1s ease both;
+}
+
+@keyframes slideInFromLeft {
     0%{
         transform: translateX(-100%);
         opacity: 0;
@@ -329,7 +328,39 @@ button[type="submit"] {
 }
 
 
-  /* About */
+/*sign-up*/
+
+.signup-form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.signup-form input[type="text"],
+.signup-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+/* About me */
 
 .artwork-summary h1 {
   font-size: 36px;
@@ -365,4 +396,25 @@ button[type="submit"] {
 
 .btn-primary:hover {
   background-color: #666b6f;
+}
+
+
+
+
+
+.artwork-collection {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.artwork-entry {
+  margin: 10px;
+}
+
+.collection-image {
+  max-width: 100px;
+}
+
+.collection-title {
+  text-align: center;
 }

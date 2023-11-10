@@ -25,8 +25,8 @@
                 <div class="col-md-3 mb-3">
                     <div class="art-card">
                         <a href="#" class="art-thumbnail" data-toggle="modal" data-target="#artworkModal"
-                            data-title="{{ artwork.title }}"
                             data-artist="{{ artwork.artist }}"
+                            data-title="{{ artwork.title }}"
                             data-medium="{{ artwork.medium }}"
                             data-description="{{ artwork.description }}"
                             data-image="{{ artwork.image.url }}"
@@ -36,6 +36,7 @@
                             data-artwork-detail="{{ artwork.get_absolute_url }}"
                             onclick="showArtworkModal(this)">
                             <img src="{{ artwork.image.url }}" class="card-img-top" alt="{{ artwork.title }}">
+                            <!-- Add overlay with title -->
                             <div class="overlay">
                                 <p>{{ artwork.title }}</p>
                             </div>
@@ -66,6 +67,7 @@
                         </div>
                         <div class="col-md-6" id="artwork_information">
                             <h3 id="artworkTitle"></h3>
+                            <p class="artist-description"><span id="artworkArtist"></span></p>
                             <p class="medium-description"><span id="artworkMedium"></span></p>
                             <p class="size-description"><span id="artworkSize"></span></p>
                             <p class="year_created"><span id="artworkYear_created"></span></p>
@@ -79,10 +81,11 @@
     </div>
 </div>
 
+<!-- JavaScript code -->
 <script>
     // JavaScript to handle the pop-up
     function showArtworkModal(element) {
-        const artist = element.getAttribute('data-artist')
+        const artist = element.getAttribute('data-artist');
         const title = element.getAttribute('data-title');
         const medium = element.getAttribute('data-medium');
         const image = element.getAttribute('data-image');
@@ -99,6 +102,7 @@
         document.getElementById('artworkYear_created').textContent = year_created;
         document.getElementById('artworkImage').setAttribute('src', image);
 
+        // Set the "See More" link to the slug-based URL
         document.getElementById('artworkDetailLink').setAttribute('href', artworkDetailLink);
 
         const userPosition = window.scrollY;
@@ -107,13 +111,13 @@
         $('#artworkModal').modal('show');
     }
 
-    // See More Button
+    // Handle "See More" button click
     document.getElementById('artworkDetailLink').addEventListener('click', function (event) {
         event.preventDefault();
         window.location.href = this.getAttribute('href');
     });
 
-    // Exit Button
+    // Handle the "exit button"
     document.getElementById('exit-button').addEventListener('click', function (event) {
         event.preventDefault();
         $('#artworkModal').modal('hide');
@@ -127,18 +131,17 @@
             window.scrollTo(0, 0);
         }
     });
-    // Search Bar
+
     document.getElementById('search-button').addEventListener('click', function () {
         const searchInput = document.getElementById('search-input').value.toLowerCase();
         const artworks = document.querySelectorAll('.art-card');
 
         artworks.forEach(function (artwork) {
-            const artist = artwork.querySelector('.art-thumbnail').getAttribute('data-artist').toLowerCase()
             const title = artwork.querySelector('.art-thumbnail').getAttribute('data-title').toLowerCase();
             const medium = artwork.querySelector('.art-thumbnail').getAttribute('data-medium').toLowerCase();
             const description = artwork.querySelector('.art-thumbnail').getAttribute('data-description').toLowerCase();
 
-            if (artist.includes(searchInput) ||title.includes(searchInput) || medium.includes(searchInput) || description.includes(searchInput)) {
+            if (title.includes(searchInput) || medium.includes(searchInput) || description.includes(searchInput)) {
                 artwork.style.display = 'block';
             } else {
                 artwork.style.display = 'none';

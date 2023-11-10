@@ -20,4 +20,13 @@
     </div>
 </div>
 
+{% if user.is_authenticated %}
+<div class="text-center mt-4">
+    <a href="#" class="btn btn-primary save-artwork" data-artwork-id="{{ artwork.id }}">
+        <i class="far fa-heart"></i> Save to Collection
+    </a>
+</div>
+{% endif %}
 
+
+{% endblock %}

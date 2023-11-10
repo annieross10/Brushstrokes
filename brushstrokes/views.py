@@ -38,7 +38,9 @@ def contact_view(request):
 
 
 def gallery_view(request):
-    artworks = Artwork.objects.filter(status=1) 
+    artworks = Artwork.objects.filter(status=1)  
+    print(artworks)
+    
     return render(request, 'gallery.html', {'artworks': artworks})
 
 class ArtworkList(generic.ListView):
@@ -120,6 +122,25 @@ class ArtworkList(ListView):
         return context
 
 
+
+@login_required
+def user_account(request):
+    user = request.user  
+    
+    context = {
+        'user': user,
+    }
+
+    return render(request, 'account/user_account.html', context)
+
+
+def artwork_detail_view(request, artwork_id):
+    artwork = get_object_or_404(Artwork, pk=artwork_id)
+    return render(request, 'artwork_detail.html', {'artwork': artwork})
+
+
+
+
 def search_view(request):
     query = request.GET.get('q', '')
     artworks = Artwork.objects.all()  
@@ -139,12 +160,31 @@ def search_view(request):
     return render(request, 'gallery.html', context)
 
 
-@login_required
-def user_account(request):
-    user = request.user  
-    
-    context = {
-        'user': user,
-    }
 
-    return render(request, 'account/user_account.html', context)
+@login_required
+def save_artwork(request, artwork_id):
+    artwork = get_object_or_404(Artwork, id=artwork_id)
+    user = request.user
+
+    if artwork.saved_by.filter(id=user.id).exists():
+        artwork.saved_by.remove(user)
+        saved = False
+    else:
+        artwork.saved_by.add(user)
+        saved = True
+
+    return JsonResponse({'saved': saved})
+
+@login_required
+def remove_artwork(request, artwork_id):
+    artwork = get_object_or_404(Artwork, id=artwork_id)
+    user = request.user
+
+    if artwork.saved_by.filter(id=user.id).exists():
+        artwork.saved_by.remove(user)
+        saved = False
+    else:
+        saved = True
+
+    return JsonResponse({'saved': saved})
+
