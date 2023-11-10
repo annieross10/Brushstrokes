@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% load i18n %}
+{% load account socialaccount %}
 
+{% block head_title %}{% trans "Art Page Sign Out" %}{% endblock %}
+
+{% block content %}
 <section class="artwork-summary mt-4">
     <div class="container">
         <div class="row">
@@ -11,5 +15,19 @@
         </div>
     </div>
 </section>
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2"></div>
+            <p>You are currently logged in. If you wish to log out, click the button below.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <form method="post" action="{% url 'account_logout' %}">
+                {% csrf_token %}
+                <button class="btn btn-signup right" type="submit">{% trans "Log Out" %}</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}
