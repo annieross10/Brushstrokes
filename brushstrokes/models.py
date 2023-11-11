@@ -47,6 +47,7 @@ class Artwork(models.Model):
 
 class Comment(models.Model):
     artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default=None)
     name = models.CharField(max_length=80)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)

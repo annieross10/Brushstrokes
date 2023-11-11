@@ -102,6 +102,7 @@ class ArtworkDetail(View):
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
+            comment.user = request.user 
             comment.artwork = artwork
             comment.approved = False
             comment.save()
@@ -158,7 +159,6 @@ def search_view(request):
     }
 
     return render(request, 'gallery.html', context)
-
 
 
 @login_required

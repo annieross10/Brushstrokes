@@ -139,14 +139,16 @@
         artworks.forEach(function (artwork) {
             const title = artwork.querySelector('.art-thumbnail').getAttribute('data-title').toLowerCase();
             const medium = artwork.querySelector('.art-thumbnail').getAttribute('data-medium').toLowerCase();
-            const description = artwork.querySelector('.art-thumbnail').getAttribute('data-description').toLowerCase();
+            const artist= artwork.querySelector('.art-thumbnail').getAttribute('data-artist').toLowerCase();
+            
 
-            if (title.includes(searchInput) || medium.includes(searchInput) || description.includes(searchInput)) {
+            if (title.includes(searchInput) || medium.includes(searchInput) || artist.includes(searchInput)) {
                 artwork.style.display = 'block';
             } else {
                 artwork.style.display = 'none';
             }
         });
+        noResultsMessage.style.display = resultsFound ? 'none' : 'block';
     });
 </script>
 
