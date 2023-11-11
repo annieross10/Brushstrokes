@@ -28,7 +28,6 @@ class Artwork(models.Model):
     )
     status = models.IntegerField(choices=STATUS_CHOICES, default=0)
 
-    
     def save(self, *args, **kwargs):
         current_year = timezone.now().year
         if self.year_created > current_year:
@@ -37,6 +36,13 @@ class Artwork(models.Model):
     
     def get_absolute_url(self):
         return reverse('artwork_detail', args=[str(self.slug)])
+    
+    class Meta:
+        verbose_name = "Artwork"
+        verbose_name_plural = "Artworks"
+
+    def __str__(self):
+        return self.title
     
 
 class Comment(models.Model):

@@ -1,14 +1,14 @@
 from django.contrib import admin
+from django.utils.html import format_html
 from django_summernote.admin import SummernoteModelAdmin 
 from .models import Artwork, Comment, ContactFormSubmission
 
 # Define the Artwork admin
 class ArtworkAdmin(SummernoteModelAdmin):
     list_display = ('title', 'artist', 'year_created', 'sold', 'created_on')
-    list_filter = ('year_created', 'sold')
-    search_fields = ('title', 'artist')
+    list_filter = ('year_created', 'sold', 'status')
+    search_fields = ('title', 'artist', 'status')
     prepopulated_fields = {'slug': ('title',)}  
-    summernote_fields = ('description',)  
 
 admin.site.register(Artwork, ArtworkAdmin)
 
