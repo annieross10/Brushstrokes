@@ -15,6 +15,7 @@ urlpatterns = [
     path('user_account/', views.user_account, name='user_account'),
     path('save-artwork/<int:artwork_id>/', views.save_artwork, name='save_artwork'),
     path('remove-artwork/<int:artwork_id>/', views.remove_artwork, name='remove_artwork'),
+    path('delete-comment/<int:comment_id>/', views.delete_comment, name='delete_comment'),
     path('<slug:slug>/', views.ArtworkDetail.as_view(), name='artwork_detail'),
     path('artwork/<slug:slug>/', views.ArtworkDetail.as_view(), name='artwork-detail'),
 

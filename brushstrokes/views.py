@@ -107,7 +107,19 @@ class ArtworkDetail(View):
             comment.save()
             messages.success(request, 'Your comment is awaiting approval.')
 
-        return redirect('artwork-detail', slug=slug)
+        return redirect('artwork_detail', slug=slug) 
+
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+
+    if request.user == comment.user:
+        comment.delete()
+        messages.success(request, 'Comment deleted successfully.')
+    else:
+        messages.error(request, 'You are not allowed to delete this comment.')
+
+    return redirect('artwork_detail', slug=comment.artwork.slug)
 
     
 class ArtworkList(ListView):
