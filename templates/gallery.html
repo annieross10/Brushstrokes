@@ -39,6 +39,7 @@
                             <!-- Add overlay with title -->
                             <div class="overlay">
                                 <p>{{ artwork.title }}</p>
+                                <p id="no-results-message" style="display: none; color: red;">No results found.</p>
                             </div>
                         </a>
                     </div>
@@ -133,23 +134,26 @@
     });
 
     document.getElementById('search-button').addEventListener('click', function () {
-        const searchInput = document.getElementById('search-input').value.toLowerCase();
-        const artworks = document.querySelectorAll('.art-card');
+    const searchInput = document.getElementById('search-input').value.toLowerCase();
+    const artworks = document.querySelectorAll('.art-card');
+    let resultsFound = false;  
 
-        artworks.forEach(function (artwork) {
-            const title = artwork.querySelector('.art-thumbnail').getAttribute('data-title').toLowerCase();
-            const medium = artwork.querySelector('.art-thumbnail').getAttribute('data-medium').toLowerCase();
-            const artist= artwork.querySelector('.art-thumbnail').getAttribute('data-artist').toLowerCase();
-            
+    artworks.forEach(function (artwork) {
+        const title = artwork.querySelector('.art-thumbnail').getAttribute('data-title').toLowerCase();
+        const medium = artwork.querySelector('.art-thumbnail').getAttribute('data-medium').toLowerCase();
+        const artist = artwork.querySelector('.art-thumbnail').getAttribute('data-artist').toLowerCase();
 
-            if (title.includes(searchInput) || medium.includes(searchInput) || artist.includes(searchInput)) {
-                artwork.style.display = 'block';
-            } else {
-                artwork.style.display = 'none';
-            }
-        });
-        noResultsMessage.style.display = resultsFound ? 'none' : 'block';
+        if (title.includes(searchInput) || medium.includes(searchInput) || artist.includes(searchInput)) {
+            artwork.style.display = 'block';
+            resultsFound = true;  
+        } else {
+            artwork.style.display = 'none';
+        }
     });
+
+    const noResultsMessage = document.getElementById('no-results-message');
+    noResultsMessage.style.display = resultsFound ? 'none' : 'block';
+});
 </script>
 
 {% endblock %}
