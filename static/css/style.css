@@ -91,6 +91,12 @@ p {
   h2 {
     font-size: 14px; 
   }
+
+  #main-image {
+    height: 100vh;
+    width: auto; 
+    display: block;
+  }
 }
 
 
