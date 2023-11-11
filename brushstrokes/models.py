@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from cloudinary.models import CloudinaryField
+from django.core.validators import MaxValueValidator
 
 
 class Artwork(models.Model):
@@ -14,7 +15,8 @@ class Artwork(models.Model):
     medium = models.TextField()
     image = CloudinaryField('image', default='placeholder')
     size = models.CharField(max_length=50, default='') 
-    year_created = models.PositiveIntegerField(default=timezone.now().year) 
+    year_created = models.PositiveIntegerField(default=timezone.now().year, validators=[MaxValueValidator(limit_value=2023, message="Year created cannot exceed 2023.")]
+    )
     STATUS_CHOICES = (
         ('For Sale', 'For Sale'),
         ('SOLD', 'SOLD'),
