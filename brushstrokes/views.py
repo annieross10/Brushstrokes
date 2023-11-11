@@ -105,9 +105,9 @@ class ArtworkDetail(View):
             comment.artwork = artwork
             comment.approved = False
             comment.save()
-            messages.success(request, 'Your comment is awaiting approval.', extra_tags='comment-approval')
+            return JsonResponse({'success': True})
 
-        return redirect('artwork_detail', slug=slug) 
+        return JsonResponse({'success': False}) 
 
 @login_required
 def delete_comment(request, comment_id):
