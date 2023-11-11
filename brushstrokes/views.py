@@ -105,7 +105,7 @@ class ArtworkDetail(View):
             comment.artwork = artwork
             comment.approved = False
             comment.save()
-            messages.success(request, 'Your comment is awaiting approval.')
+            messages.success(request, 'Your comment is awaiting approval.', extra_tags='comment-approval')
 
         return redirect('artwork_detail', slug=slug) 
 

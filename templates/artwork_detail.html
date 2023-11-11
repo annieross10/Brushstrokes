@@ -53,6 +53,16 @@
     <!-- Comment form -->
     {% if user.is_authenticated %}
     <div class="mt-4">
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'comment-approval' %}
+                    <div id="comment-approval" class="alert alert-info" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    
         <form method="post" action="{% url 'artwork-detail' artwork.slug %}" id="comment-form">
             {% csrf_token %}
             <input type="hidden" name="user" value="{{ user.username }}">
