@@ -188,3 +188,4 @@ def remove_artwork(request, artwork_id):
 
     return JsonResponse({'saved': saved})
 
+

@@ -28,6 +28,40 @@
 </div>
 {% endif %}
 
+<div class="container">
+    <!-- Display existing comments -->
+    <div class="mt-4">
+        {% for comment in comments %}
+            {% if comment.approved %}
+                <div class="card mb-3">
+                    <div class="card-header font-weight-bold">
+                        {{ comment.name }} said:
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{ comment.body }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Comment form -->
+    {% if user.is_authenticated %}
+    <div class="mt-4">
+        <form method="post" action="{% url 'artwork-detail' artwork.slug %}" id="comment-form">
+            {% csrf_token %}
+            <input type="hidden" name="username" value="{{ user.username }}">
+            <div class="form-group">
+                {{ comment_form.body }}
+            </div>
+            <p>Posting as: {{ user.username }}</p>
+            <button type="submit" class="btn btn-primary">Write a Comment</button>
+        </form>
+    </div>
+    {% endif %}
+</div>
+
+
 
 <script>
 
