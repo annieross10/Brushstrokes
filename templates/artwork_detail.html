@@ -29,4 +29,26 @@
 {% endif %}
 
 
+<script>
+
+    $(document).ready(function() {
+        $(".save-artwork").click(function(e) {
+            e.preventDefault();
+            var artworkId = $(this).data("artwork-id");
+            var url = "/save-artwork/" + artworkId + "/";
+            var icon = $(this);
+
+            $.get(url, function(data) {
+                if (data.saved) {
+                    icon.html('<i class="fas fa-heart"></i> Saved to Collection');
+                } else {
+                    icon.html('<i class="far fa-heart"></i> Save to Collection');
+                }
+            });
+        });
+    });
+
+</script>
+
+
 {% endblock %}
