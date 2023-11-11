@@ -37,8 +37,8 @@
         {% for comment in comments %}
             {% if comment.approved %}
                 <div class="card mb-3">
-                    <div class="card-header font-weight-bold">
-                        {{ comment.name }} said:
+                    <div class="card-header font-weight-bold" style="color:rgb(53, 53, 159)">
+                        <strong>{{ comment.user.username }}</strong> said:
                     </div>
                     <div class="card-body">
                         <p class="card-text">{{ comment.body }}</p>
@@ -53,7 +53,7 @@
     <div class="mt-4">
         <form method="post" action="{% url 'artwork-detail' artwork.slug %}" id="comment-form">
             {% csrf_token %}
-            <input type="hidden" name="username" value="{{ user.username }}">
+            <input type="hidden" name="user" value="{{ user.username }}">
             <div class="form-group">
                 {{ comment_form.body }}
             </div>

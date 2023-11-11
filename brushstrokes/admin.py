@@ -12,9 +12,9 @@ class ArtworkAdmin(admin.ModelAdmin):
 admin.site.register(Artwork, ArtworkAdmin)
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'artwork', 'created_on', 'approved')
+    list_display = ('user', 'artwork', 'created_on', 'approved')
     list_filter = ('approved',)
-    search_fields = ('name', 'artwork__title') 
+    search_fields = ('artwork__title', 'artwork__artist') 
 
 admin.site.register(Comment, CommentAdmin)
 

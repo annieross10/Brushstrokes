@@ -148,23 +148,23 @@ p {
 
 .custom-artwork-modal .modal-dialog {
   max-width: 900px;
-  max-height: 80vh; /* Limit the maximum height to 80% of the viewport height */
-  margin: 10% auto; /* Center the modal vertically and horizontally */
+  max-height: 80vh; 
+  margin: 10% auto; 
 }
 
 .custom-artwork-modal .modal-content {
-  background-color: rgba(249, 249, 249, 0.9); /* Adjust the background color and transparency */
+  background-color: rgba(249, 249, 249, 0.9); 
   border-radius: 5px;
 }
 
 .custom-artwork-modal .modal-title {
-  display: none; /* Hide the modal title */
+  display: none; 
 }
 
 .custom-artwork-modal .modal-body {
   text-align: center;
   margin:0 auto;
-  padding: 10px
+  padding-bottom: 20px
 }
 
 .custom-artwork-modal #artworkImage {
@@ -172,7 +172,7 @@ p {
   max-height: 100%; 
   display: block; 
   margin: 0 auto;
-  padding:5px;
+  padding-bottom: 20px;
 }
 .custom-artwork-modal #artworkTitle {
   font-size: 20px;
