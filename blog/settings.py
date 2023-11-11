@@ -55,10 +55,9 @@ INSTALLED_APPS = [
     'brushstrokes',
 ]
 
-SITE_ID = 1
 
 LOGIN_REDIRECT_URL ='/user_account/'
-LOGOUT_REDIRECT_URL ='/'
+LOGOUT_REDIRECT_URL =''
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
