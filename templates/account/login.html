@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
-{% load i18n %}
-{% load account socialaccount %}
+{% load i18n socialaccount allauth %}
 
-{% block head_title %}{% trans "Art Page Sign In" %}{% endblock %}
+{% block head_title %}
+    {% trans "Art Page Sign Out" %}
+{% endblock %}
 
 {% block content %}
-
 <section class="artwork-summary mt-4">
     <div class="container">
         <div class="row">
