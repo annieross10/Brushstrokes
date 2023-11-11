@@ -63,7 +63,7 @@ def contact_form(request):
             )
             contact_submission.save() 
 
-            messages.success(request, 'Thank you for your email! We will get back to you as soon as we can.')
+            messages.success(request, 'Thank you for your email! We will get back to you as soon as we can.', extra_tags='contact-form')
 
             return redirect('contact')
 
@@ -74,7 +74,6 @@ def contact_form(request):
         form = ContactForm()
 
     return render(request, 'contact.html', {'form': form})
-
 
 
 

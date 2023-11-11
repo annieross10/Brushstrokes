@@ -52,29 +52,47 @@ p {
 
 #gallery-button {
   position: absolute;
-  bottom: 72%; /* Adjust the bottom position as needed */
-  left: 50%; /* Center the button horizontally */
-  transform: translateX(-50%); /* Center the button horizontally */
-  z-index: 1; /* Ensure the button is above other elements */
+  bottom: 72%; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  z-index: 1; 
 }
 
+/* Media queries for smaller screens */
 @media (max-width: 992px) {
   #gallery-button {
-    bottom: 60%; 
+    bottom: 60%;
   }
 }
 
 @media (max-width: 768px) {
   #gallery-button {
-    bottom: 40%; 
+    bottom: 40%;
+  }
+
+  h1 {
+    font-size: 24px; 
+  }
+
+  h2 {
+    font-size: 18px; 
   }
 }
 
-@media (max-width:576px){
+@media (max-width: 576px) {
   #gallery-button {
-  display:none
+    bottom: 20%;
+  }
+
+  h1 {
+    font-size: 18px; 
+  }
+
+  h2 {
+    font-size: 14px; 
+  }
 }
-}
+
 
 
 

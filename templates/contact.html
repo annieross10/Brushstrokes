@@ -25,7 +25,9 @@
                     {{ form.as_p }}
                     <p id="success-message" style="color: rgb(48, 107, 174);">
                         {% for message in messages %}
-                            {{ message }}
+                            {% if 'contact-form' in message.tags %}
+                                {{ message }}
+                            {% endif %}
                         {% endfor %}
                     </p>
                     
