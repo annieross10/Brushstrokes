@@ -55,6 +55,11 @@ INSTALLED_APPS = [
     'brushstrokes',
 ]
 
+LOGIN_REDIRECT_URL ='/user_account/'
+LOGOUT_REDIRECT_URL ='/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -66,6 +71,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'blog.urls'
+
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 TEMPLATES = [
     {
