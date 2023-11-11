@@ -41,4 +41,22 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function () {
+        $(".remove-artwork").click(function () {
+            var artworkId = $(this).data("artwork-id");
+            var url = "/remove-artwork/" + artworkId + "/";
+
+            var button = $(this);
+
+            $.get(url, function (data) {
+                if (data.saved === false) {
+                    button.parent().remove();
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}
+
 {% endblock %}
