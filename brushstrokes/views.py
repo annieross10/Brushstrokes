@@ -1,54 +1,42 @@
-from .forms import ContactForm, CommentForm
-from django.contrib import messages
-from django.shortcuts import render, get_object_or_404
-from django.views import generic, View
-from .models import Artwork, Comment
-from .models import ContactFormSubmission
-from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views import View
 from django.db.models import Q
-from django.shortcuts import render, redirect
-from datetime import datetime
 from django.views.generic import ListView
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.http import require_http_methods
-from django.http import JsonResponse, HttpResponse
-from django.urls import reverse
+from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from .forms import ContactForm, CommentForm
+from .models import Artwork, Comment, ContactFormSubmission
+from datetime import datetime
+from django.contrib import messages
 from django.contrib.messages import get_messages
 
-
-
+# Base
 def your_view(request):
     current_year = datetime.now().year
     return render(request, 'base.html', {'year': current_year})
 
+# Index
 def index(request):
     return render(request, 'index.html')
 
+# About
 def about_view(request):
     return render(request, 'about.html')
 
-def gallery_view(request):
-    return render(request, 'gallery.html')
-
+# Contact
 def contact_view(request):
     return render(request, 'contact.html')
 
-
-
+# Gallery
 def gallery_view(request):
     artworks = Artwork.objects.filter(status=1)  
     print(artworks)
     
     return render(request, 'gallery.html', {'artworks': artworks})
 
-class ArtworkList(generic.ListView):
-    model = Artwork
-    queryset = Artwork.objects.filter(status=1).order_by('-created_on')
-    template_name = 'index.html'
-    paginate_by = 6
-
+# Contact Form
 @csrf_protect
 @require_http_methods(["GET", "POST"])
 def contact_form(request):
@@ -75,8 +63,7 @@ def contact_form(request):
 
     return render(request, 'contact.html', {'form': form})
 
-
-
+# Artwork 
 class ArtworkDetail(View):
     def get(self, request, slug, *args, **kwargs):
         queryset = Artwork.objects.filter(status=1)
@@ -109,6 +96,7 @@ class ArtworkDetail(View):
 
         return JsonResponse({'success': False}) 
 
+# Delete Comment
 @login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
@@ -121,7 +109,7 @@ def delete_comment(request, comment_id):
 
     return redirect('artwork_detail', slug=comment.artwork.slug)
 
-    
+# Artwork List
 class ArtworkList(ListView):
     model = Artwork
     queryset = Artwork.objects.filter(status=1).order_by('-created_on')
@@ -133,45 +121,32 @@ class ArtworkList(ListView):
         context = super().get_context_data(**kwargs)
         return context
 
-
-
+# User Acount
 @login_required
 def user_account(request):
     user = request.user  
-    
     context = {
         'user': user,
     }
-
     return render(request, 'account/user_account.html', context)
 
-
-def artwork_detail_view(request, artwork_id):
-    artwork = get_object_or_404(Artwork, pk=artwork_id)
-    return render(request, 'artwork_detail.html', {'artwork': artwork})
-
-
-
-
+# Search for Artwork
 def search_view(request):
     query = request.GET.get('q', '')
     artworks = Artwork.objects.all()  
 
     if query:
-
         artworks = artworks.filter(
             Q(title__icontains=query) |
             Q(medium__icontains=query) |
-            Q(description__icontains=query)  
+            Q(artist__icontains=query)  
         )
-
     context = {
         'artworks': artworks
     }
-
     return render(request, 'gallery.html', context)
 
-
+# Save Artwork
 @login_required
 def save_artwork(request, artwork_id):
     artwork = get_object_or_404(Artwork, id=artwork_id)
@@ -186,6 +161,7 @@ def save_artwork(request, artwork_id):
 
     return JsonResponse({'saved': saved})
 
+# Remove Artwork
 @login_required
 def remove_artwork(request, artwork_id):
     artwork = get_object_or_404(Artwork, id=artwork_id)
