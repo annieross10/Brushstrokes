@@ -177,7 +177,7 @@ p {
 .custom-artwork-modal .modal-body {
   text-align: center;
   margin:0 auto;
-  padding-bottom: 20px
+  padding-bottom: 25px
 }
 
 .custom-artwork-modal #artworkImage {
@@ -185,7 +185,7 @@ p {
   max-height: 100%; 
   display: block; 
   margin: 0 auto;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
 .custom-artwork-modal #artworkTitle {
   font-size: 20px;
