@@ -6,36 +6,61 @@
 ### Exisiting Features
 #### Navigation Bar
 
+![Brushstrokes navigation bar visitor view](static/screenshots/header-visitor-view-screenshot.png)
+
+![Brushstrokes navigation bar user view](static/screenshots/header-user-view-screenshot.png)
 
 #### Landing Page Image
 
 
 #### About Section
 
+![Brushstrokes about section](static/screenshots/about-screenshot.png)
+
+#### Contact
+
+![Brushstrokes Contact](static/screenshots/contact-screenshot.png)
+
+![Brushstrokes Contact Success](static/screenshots/contact-success-screenshot.png)
 
 #### Gallery
 
+![Brushstrokes Gallery](static/screenshots/gallery-screenshot.png)
+
+![Brushstrokes Gallery Search Bar]
+
+![Brushstrokes Modal](static/screenshots/modal-screenshot.png)
 
 #### Artwork Detail
 
 
-#### Footer
 
 
 #### Login
 
+![Brushstrokes Login](static/screenshots/login-screenshot.png)
 
 #### Sign Up
 
+![Brushstrokes Sign-up](static/screenshots/sign-up-screenshot.png)
 
 #### Logout
 
+![Brushstrokes logout](static/screenshots/logout-screenshot.png)
 
 #### Account
 
 #### Commenting
 
 #### Save to Collection
+
+![Brushstrokes Save to Collection](static/screenshots/save-to-collection-screenshot.png)
+
+![Brushstrokes Saved to Collection](static/screenshots/saved-collection-screenshot.png)
+
+#### Footer
+
+![Brushstrokes Footer](static/screenshots/footer-screenshot.png)
 
 
 ### Features Left to Implement
