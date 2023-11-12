@@ -50,9 +50,11 @@ p {
 #gallery-button {
   position: absolute;
   bottom: 72%; 
-  left: 50%;  
+  left: 50%; 
   transform: translateX(-50%); 
   z-index: 1; 
+  width: 120px;
+  height: 60px;
 }
 
 /* Media queries for smaller screens */
@@ -71,6 +73,8 @@ p {
 @media (max-width: 576px) {
   #gallery-button {
     bottom: 30%;
+    width: 80px;
+    height:auto;
 }
 h1 {
   font-size: 29px;
@@ -83,7 +87,8 @@ h1 {
   width: 100%;
   text-align: center;
   height: 100vh; 
-  overflow: hidden; 
+  overflow: hidden;
+  zoom: 40% 
 }
 
 #main-image {
@@ -290,7 +295,7 @@ button[type="submit"] {
   justify-content: center;
   align-items: center;
   max-width: 100%; 
-  max-height: 500px; 
+  max-height: 700px; 
   padding-right: 20px;
 }
 
