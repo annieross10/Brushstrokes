@@ -20,35 +20,43 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 mt-3 artwork-container">
-            <div class="row">
-                {% for artwork in artworks %}
-                <div class="col-md-3 mb-3">
-                    <div class="art-card">
-                        <a href="#" class="art-thumbnail" data-toggle="modal" data-target="#artworkModal"
-                            data-artist="{{ artwork.artist }}"
-                            data-title="{{ artwork.title }}"
-                            data-medium="{{ artwork.medium }}"
-                            data-description="{{ artwork.description }}"
-                            data-image="{{ artwork.image.url }}"
-                            data-size="{{ artwork.size }}"
-                            data-year_created="{{ artwork.year_created }}"
-                            data-sold="{{ artwork.sold }}"
-                            data-artwork-detail="{{ artwork.get_absolute_url }}"
-                            onclick="showArtworkModal(this)">
-                            <img src="{{ artwork.image.url }}" class="card-img-top" alt="{{ artwork.title }}">
-                            <!-- Add overlay with title -->
-                            <div class="overlay">
-                                <p>{{ artwork.title }}</p>
-                                <p id="no-results-message" style="display: none; color: red;">No results found.</p>
+            {% if artworks %}
+                <h4>Search Results for "{{ request.GET.q }}"</h4>
+                <div class="row">
+                    {% for artwork in artworks %}
+                        <div class="col-md-3 mb-3">
+                            <div class="art-card">
+                                <a href="#" class="art-thumbnail" data-toggle="modal" data-target="#artworkModal"
+                                    data-artist="{{ artwork.artist }}"
+                                    data-title="{{ artwork.title }}"
+                                    data-medium="{{ artwork.medium }}"
+                                    data-description="{{ artwork.description }}"
+                                    data-image="{{ artwork.image.url }}"
+                                    data-size="{{ artwork.size }}"
+                                    data-year_created="{{ artwork.year_created }}"
+                                    data-sold="{{ artwork.sold }}"
+                                    data-artwork-detail="{{ artwork.get_absolute_url }}"
+                                    onclick="showArtworkModal(this)">
+                                    <img src="{{ artwork.image.url }}" class="card-img-top" alt="{{ artwork.title }}">
+                                    <!-- Add overlay with title -->
+                                    <div class="overlay">
+                                        <p>{{ artwork.title }}</p>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
-            </div>
+            {% else %}
+                <div class="col-12">
+                    <p id="no-results-message" style="color: red;">No results found for "{{ request.GET.q }}".</p>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
+
+
 
 <!-- Modal for displaying artwork details -->
 <div class="modal fade custom-artwork-modal" id="artworkModal" tabindex="-1" role="dialog" aria-labelledby="artworkModalLabel" aria-hidden="true">
@@ -136,7 +144,7 @@
     document.getElementById('search-button').addEventListener('click', function () {
     const searchInput = document.getElementById('search-input').value.toLowerCase();
     const artworks = document.querySelectorAll('.art-card');
-    let resultsFound = false;  
+    let resultsFound = false;
 
     artworks.forEach(function (artwork) {
         const title = artwork.querySelector('.art-thumbnail').getAttribute('data-title').toLowerCase();
@@ -145,7 +153,7 @@
 
         if (title.includes(searchInput) || medium.includes(searchInput) || artist.includes(searchInput)) {
             artwork.style.display = 'block';
-            resultsFound = true;  
+            resultsFound = true;
         } else {
             artwork.style.display = 'none';
         }

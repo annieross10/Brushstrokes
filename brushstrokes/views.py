@@ -133,16 +133,17 @@ def user_account(request):
 # Search for Artwork
 def search_view(request):
     query = request.GET.get('q', '')
-    artworks = Artwork.objects.all()  
+    artworks = Artwork.objects.all()
 
     if query:
         artworks = artworks.filter(
             Q(title__icontains=query) |
             Q(medium__icontains=query) |
-            Q(artist__icontains=query)  
+            Q(artist__icontains=query)
         )
     context = {
-        'artworks': artworks
+        'artworks': artworks,
+        'search_query': query, 
     }
     return render(request, 'gallery.html', context)
 
