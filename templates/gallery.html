@@ -1,4 +1,3 @@
-{% extends "base.html" %}
 
 {% block content %}
 <section class="artwork-summary mt-4">
@@ -10,7 +9,7 @@
             <div class="col-md-6 d-flex justify-content-end" id="search_bar">
                 <form class="search-form" id="search-form" method="GET" action="{% url 'search' %}">
                     <input type="text" name="q" placeholder="Search...">
-                    <button type="submit">Search</button>
+                    <button type="submit" class="btn btn-primary">Search</button>
                 </form>
             </div>
         </div>
@@ -20,36 +19,39 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 mt-3 artwork-container">
-            {% if artworks %}
-                <h4>Search Results for "{{ request.GET.q }}"</h4>
-                <div class="row">
-                    {% for artwork in artworks %}
-                        <div class="col-md-3 mb-3">
-                            <div class="art-card">
-                                <a href="#" class="art-thumbnail" data-toggle="modal" data-target="#artworkModal"
-                                    data-artist="{{ artwork.artist }}"
-                                    data-title="{{ artwork.title }}"
-                                    data-medium="{{ artwork.medium }}"
-                                    data-description="{{ artwork.description }}"
-                                    data-image="{{ artwork.image.url }}"
-                                    data-size="{{ artwork.size }}"
-                                    data-year_created="{{ artwork.year_created }}"
-                                    data-sold="{{ artwork.sold }}"
-                                    data-artwork-detail="{{ artwork.get_absolute_url }}"
-                                    onclick="showArtworkModal(this)">
-                                    <img src="{{ artwork.image.url }}" class="card-img-top" alt="{{ artwork.title }}">
-                                    <!-- Add overlay with title -->
-                                    <div class="overlay">
-                                        <p>{{ artwork.title }}</p>
-                                    </div>
-                                </a>
-                            </div>
+            {% if search_query %}
+                <h4 class="mt-3 mb-3">Search Results for "{{ search_query }}"</h4>
+            {% endif %}
+            <div class="row">
+                {% for artwork in artworks %}
+                    <div class="col-md-3 mb-3">
+                        <div class="art-card">
+                            <a href="#" class="art-thumbnail" data-toggle="modal" data-target="#artworkModal"
+                                data-artist="{{ artwork.artist }}"
+                                data-title="{{ artwork.title }}"
+                                data-medium="{{ artwork.medium }}"
+                                data-description="{{ artwork.description }}"
+                                data-image="{{ artwork.image.url }}"
+                                data-size="{{ artwork.size }}"
+                                data-year_created="{{ artwork.year_created }}"
+                                data-sold="{{ artwork.sold }}"
+                                data-artwork-detail="{{ artwork.get_absolute_url }}"
+                                onclick="showArtworkModal(this)">
+                                <img src="{{ artwork.image.url }}" class="card-img-top" alt="{{ artwork.title }}">
+                                <!-- Add overlay with title -->
+                                <div class="overlay">
+                                    <p>{{ artwork.title }}</p>
+                                </div>
+                            </a>
                         </div>
-                    {% endfor %}
-                </div>
-            {% else %}
-                <div class="col-12">
-                    <p id="no-results-message" style="color: red;">No results found for "{{ request.GET.q }}".</p>
+                    </div>
+                {% endfor %}
+            </div>
+            {% if search_query and not artworks %}
+                <div class="col-12 mt-3">
+                    <div class="alert alert-danger" role="alert">
+                        <p class="mb-0">No results found for "{{ search_query }}".</p>
+                    </div>
                 </div>
             {% endif %}
         </div>
