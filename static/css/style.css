@@ -71,6 +71,8 @@ p {
 @media (max-width: 576px) {
   #gallery-button {
     bottom: 20%;
+  }
+  #main-image{
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 
