@@ -224,24 +224,89 @@ E-Commerce Integration
 
 
 ## Testing
+### Manual Testing
 
+I've thoroughly tested the application manually to ensure its functionality and provide a seamless user experience. Here are some of the scenarios I've covered:
 
-### Bugs
-#### Solved Bugs
+#### Authentication
+
+1. **User Login and Logout**
+   - Navigated to the login page.
+   - Entered valid credentials and clicked the login button.
+   - Verified successful redirection to the user dashboard.
+   - Logged out and confirmed a successful logout.
+
+2. **Password Recovery**
+   - Initiated the password recovery process.
+   - Received the password recovery email.
+   - Followed the link and confirmed the ability to reset the password.
+
+#### Artwork Interaction
+
+3. **Viewing Artwork Details**
+   - Visited the gallery page.
+   - Clicked on multiple artworks to view their details.
+   - Verified that each artwork details page displays the correct information.
+   - Ensured smooth navigation back to the gallery.
+
+4. **Saving and Removing Artwork**
+   - Logged in and navigated to the gallery.
+   - Saved a few artworks to my collection.
+   - Checked that the saved artworks appear in my account page.
+   - Removed an artwork from my collection and confirmed the update.
+
+#### Contact Form
+
+5. **Submitting Contact Form**
+   - Filled out the contact form with valid data.
+   - Submitted the form and checked for successful submission.
+   - Verified that the submitted form details are recorded.
+  
+#### Comments Interaction
+
+6. **Viewing Comments**
+   - Navigated to various artworks with comments.
+   - Verified that comments are displayed beneath each artwork.
+   - Checked for correct rendering of the user's name, comment body, and timestamp.
+
+7. **Submitting Comments**
+   - Logged in and visited an artwork with no comments.
+   - Submitted a new comment.
+   - Checked that the new comment appears immediately below the artwork.
+
+8. **Comment Verification**
+   - Submitted a comment with a different user account.
+   - Checked that new comments go through an approval process.
+   - Verified that unapproved comments are not visible to other users.
+
+9. **Deleting Own Comments**
+   - Logged in and visited an artwork with personal comments.
+   - Deleted one's own comment.
+   - Verified that the comment is immediately removed from the display.
+
+10. **Comment Interaction for Visitors**
+   - Logged out and attempted to submit a comment.
+   - Verified that the comment form is not accessible for visitors.
+   - Checked that visitors can still view existing comments.
+  
+## Automated Testing 
+   
+
 
 
 ### Validator Testing
 
 #### Javascript 
 
-#### HTML
-- No Errors were found when passing through the official [W3C validator](https://validator.w3.org/#validate_by_input)
 #### CSS
 - No Errors were found when passing though the official [W3C validator](https://jigsaw.w3.org/css-validator/)
 
 #### Accessibility 
  - I confirmed that the colours and fonts chosen are easy to read and accessible by running them through Lighthouse in Devtools.
 
+
+### Bugs
+#### Solved Bugs
 
 ### Unfixed Bugs
 No unfixed bugs
