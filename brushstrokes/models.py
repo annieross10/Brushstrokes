@@ -7,6 +7,7 @@ from cloudinary.models import CloudinaryField
 from django.core.validators import MaxValueValidator
 
 
+#Artwork Model
 class Artwork(models.Model):
     title = models.CharField(max_length=200, unique=True)
     artist = models.CharField(max_length=100)
@@ -48,6 +49,7 @@ class Artwork(models.Model):
         return self.title
     
 
+#Comment Model
 class Comment(models.Model):
     artwork = models.ForeignKey(Artwork, on_delete=models.CASCADE, related_name='comments')
     user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default=None)
@@ -62,6 +64,7 @@ class Comment(models.Model):
         return f'Comment by {self.user.username} on {self.artwork}'
     
 
+#ContactForm Model
 class ContactFormSubmission(models.Model):
     name = models.CharField(max_length=255, default="Anonymous")
     email = models.EmailField()

@@ -2,7 +2,8 @@ from django.contrib import admin
 from django.utils.html import format_html
 from .models import Artwork, Comment, ContactFormSubmission
 
-# Define the Artwork admin
+
+#Artwork admin
 class ArtworkAdmin(admin.ModelAdmin):
     list_display = ('title', 'artist', 'year_created', 'sold', 'created_on')
     list_filter = ('year_created', 'sold', 'status')
@@ -11,6 +12,8 @@ class ArtworkAdmin(admin.ModelAdmin):
 
 admin.site.register(Artwork, ArtworkAdmin)
 
+
+#Comment admin
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('user', 'artwork', 'created_on', 'approved')
     list_filter = ('approved',)
@@ -18,6 +21,8 @@ class CommentAdmin(admin.ModelAdmin):
 
 admin.site.register(Comment, CommentAdmin)
 
+
+#ContactForm admin
 class ContactFormSubmissionAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'created_at')
     search_fields = ('name', 'email', 'message')
