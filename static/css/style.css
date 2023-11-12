@@ -72,13 +72,6 @@ p {
   #gallery-button {
     bottom: 40%;
   }
-
-  #main-image {
-    width: 100%;
-    height: calc(100vw * 3 / 4); 
-    object-fit: cover; 
-    display: block;
-  }
 }
 
 
