@@ -12,10 +12,13 @@
 
 #### Landing Page Image
 
+![Brushstrokes Landing Image](static/screenshots/landing-image-screenshot.png)
 
 #### About Section
 
 ![Brushstrokes about section](static/screenshots/about-screenshot.png)
+
+![Brushstrokes about-artist section](static/screenshots/about-artist-info.png)
 
 #### Contact
 
@@ -27,13 +30,15 @@
 
 ![Brushstrokes Gallery](static/screenshots/gallery-screenshot.png)
 
-![Brushstrokes Gallery Search Bar]
+![Brushstrokes Gallery Search Bar](static/screenshots/gallery-title-search.png)
+
+![Brushstrokes Gallery No Results Search Bar](static/screenshots/no-search-results-screenshot.png)
 
 ![Brushstrokes Modal](static/screenshots/modal-screenshot.png)
 
 #### Artwork Detail
 
-
+![Brushstrokes artwork detail](static/screenshots/artwork-detail-screenshot.png)
 
 
 #### Login
@@ -50,17 +55,22 @@
 
 #### Account
 
+![Brushstrokes Account](static/screenshots/your-account-screenshot.png)
+
 #### Commenting
+
+![Brushstrokes comment](static/screenshots/comment-approval-screenshot.png)
+
+![Brushstrokes Comment Delete](static/screenshots/comment-delete-screenshot.png)
 
 #### Save to Collection
 
-![Brushstrokes Save to Collection](static/screenshots/save-to-collection-screenshot.png)
+![Brushstrokes Save to Collection](static/screenshots/save-to-collection-screenshot.png) ![Brushstrokes Saved to Collection](static/screenshots/saved-collection-screenshot.png)
 
-![Brushstrokes Saved to Collection](static/screenshots/saved-collection-screenshot.png)
 
 #### Footer
 
-![Brushstrokes Footer](static/screenshots/footer-screenshot.png)
+![Brushstrokes Footer](static/screenshots/footer-view.png)
 
 
 ### Features Left to Implement
