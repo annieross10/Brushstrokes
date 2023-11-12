@@ -1,25 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<div class="container my-4">
-    <a href="{% url 'gallery' %}">⬅ Back to Gallery</a>
-    <div class="row">
-        <div class="col-md-6 d-flex align-items-center justify-content-center" id="left-column">
-            <div class="image-container">
-                <div class="text-overlay">
-                    <h1 class="animate-from-left">Welcome to Brushstrokes Art Blog</h1>
-                    <h2 class="animate-from-left">
-                        Showcasing our incredible Glasgow Artists!
-                    </h2>
-                    <p class="animate-from-left">Join our community and interact with the local artists! Click below to see our online Gallery.</p>
-                </div>
-                <img 
-                    src="{% static 'index-image.jpg' %}" 
-                    srcset="{% static 'index-image.jpg' %} 768w, {% static 'index-image-media-screen.jpg' %} 576w" 
-                    alt="Brushstrokes By Annie"
-                    id="main-image">
-                <a href="{% url 'gallery' %}" class="btn btn-primary rounded-pill" id="gallery-button">Go to Gallery</a>
-            </div>
-        </div>
+<div class="image-container">
+    <div class="text-overlay">
+        <h1 class="animate-from-left">Welcome to Brushstrokes Art Blog</h1>
+        <h2 class="animate-from-left">
+            Showcasing our incredible Glasgow Artists!
+        </h2>
+        <p class="animate-from-left">Join our community and interact with the local artists! Click below to see our online Gallery.</p>
+    </div>
+    <img src="{% static 'index-image.jpg' %}" srcset="{% static 'index-image.jpg' %} 768w, {% static 'index-image-media-screen.jpg' %} 576w"
+    sizes="(max-width: 576px) 100vw, (max-width: 768px) 50vw, 33.3vw" alt="Brushstrokes By Annie" id="main-image">
+    <a href="{% url 'gallery' %}" class="btn btn-primary rounded-pill" id="gallery-button">Go to Gallery</a>
 </div>
+
 {% endblock %}
