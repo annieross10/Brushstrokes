@@ -88,9 +88,9 @@ h1 {
 
 #main-image {
   max-width: 100%; 
-  height: 100vh; 
-  position: relative;
-  zoom: 20%;
+  height: auto; 
+  zoom: 40%
+  
 }
 }
 
