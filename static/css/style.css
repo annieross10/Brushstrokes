@@ -45,14 +45,14 @@ h2 {
 }
 
 p {
-  font-size: 14px;
+  font-size: 17px;
   padding:10px;
   font-weight: normal;
 }
 
 #gallery-button {
   position: absolute;
-  bottom: 72%; 
+  bottom: 75%; 
   left: 50%; 
   transform: translateX(-50%); 
   z-index: 1; 
@@ -83,7 +83,7 @@ p {
   width: 100%;
   text-align: center;
   height: 100vh; 
-  zoom: 40% 
+  zoom: 80% 
 }
 
 #main-image {
