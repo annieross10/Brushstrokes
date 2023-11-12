@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+
+
 <section class="artwork-summary mt-4">
     <div class="container">
         <div class="row">
@@ -24,10 +26,107 @@
 
                 <p>In this digital age, we blur the lines between the virtual and the tangible. Come be a part of our story, explore, create, and celebrate art with us.</p>
 
+                <p style="text-align: center;"><strong>Scroll down to learn more about our artists in residency!</p></strong>
+
                 <p id="join-community-button"><a href="{% url 'account_signup' %}" class="btn btn-primary">Join our art community - Sign up today!</a></p>
             </div>
             <div class="col-md-6">
                 <img src="{% static 'about-image.jpg' %}" alt="Annie's Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="local-artists mt-4">
+    <div class="container">
+        <!-- Brian Lee -->
+        <div class="row">
+            <div class="col-md-6 order-md-1 text-center">
+                <img src="{% static 'brian-lee-artwork.jpg' %}" alt="Brian Lee Artwork" class="img-fluid square-image mb-3">
+            </div>
+            <div class="col-md-6 order-md-2">
+                <div id="brian-lee-info">
+                    <h2>Brian Lee</h2>
+                    <p>Brian Lee, a visionary artist, navigates the canvas with an unparalleled flair for abstract landscapes. His brush
+                        dances across the surface, weaving intricate tales of distant terrains and vibrant cityscapes. Through a
+                        kaleidoscope of colours, Brian captures the essence of diverse landscapes from around the world, transcending
+                        geographical boundaries in his mesmerizing creations. His artwork is a testament to a profound connection with
+                        nature and an exploration of the unseen, inviting viewers to embark on a visual journey through the imagination of a
+                        masterful painter.</p>
+                    </div>
+            </div>
+        </div>
+
+        <!-- Donald Romane -->
+        <div class="row" id="donald-romane">
+            <div class="col-md-6 order-md-2 text-center">
+                <img src="{% static 'donald-romane-artwork.jpg' %}" alt="Donald Romane Artwork" class="img-fluid square-image mb-3">
+            </div>
+            <div class="col-md-6 order-md-1">
+                <div id="donald-romane-info">
+                    <h2>Donald Romane</h2>
+                    <p>Donald Romane, an artistic virtuoso, skillfully navigates the spectrum from abstract expressions to intricately
+                        detailed portraits. His canvas becomes a mirror of human emotions, where every stroke whispers tales of joy, sorrow,
+                        and everything in between. With a palette that mirrors the complexity of emotions, Donald infuses life into his
+                        creations, inviting viewers to delve into the profound depths of his art. Through his adept brushwork and a rich
+                        interplay of colors, he not only paints portraits but also captures the intricate landscapes of the soul,
+                        establishing an emotional connection that resonates deeply with those who encounter his work.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sophie Watson -->
+        <div class="row">
+            <div class="col-md-6 order-md-1 text-center">
+                <img src="{% static 'sophie-watson-artwork.jpg' %}" alt="Sophie Watson Artwork" class="img-fluid square-image mb-3">
+            </div>
+            <div class="col-md-6 order-md-2">
+                <div id="sophie-watson-info">
+                    <h2>Sophie Watson</h2>
+                    <p>Sophie Watson, a maestro in the art of botanical beauty, specializes in capturing the ethereal essence of flowers. Her
+                    delicate style of painting, adorned with soft strokes and gentle hues, breathes life into petals and leaves. Using the
+                    vibrant medium of acrylic paint, Sophie transforms her canvas into a garden of tranquility, where each bloom tells a
+                    tale of grace and serenity. With a meticulous touch, she unveils the intricate details of nature's wonders, inviting
+                    viewers into a world where the soft palette of colors becomes a soothing symphony for the eyes. Sophie's art is a
+                    celebration of the fleeting beauty found in every petal and the timeless elegance of the floral realm.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paula McDonald -->
+        <div class="row" id="paula-mcdonald">
+            <div class="col-md-6 order-md-2 text-center">
+                <img src="{% static 'paula-mcdonald-artwork.jpg' %}" alt="Paula McDonald Artwork" class="img-fluid square-image mb-3">
+            </div>
+            <div class="col-md-6 order-md-1">
+                <div id="paula-mcdonald-info">
+                    <h2>Paula McDonald</h2>
+                    <p>Paula McDonald, an abstract virtuoso, boldly wields her brush to create vivid and energetic paintings. Her distinctive
+                    style is characterized by bold, thick brushstrokes that dance across the canvas, infusing life and vibrancy into her
+                    creations. Paula's art is a celebration of spontaneity and joy, where each stroke is a playful exploration of color and
+                    form. With a fearless approach to abstraction, she invites viewers into a world of whimsy and excitement, where the
+                    canvas becomes a playground for the imagination. Paula's fun and dynamic paintings are a testament to her artistic
+                    freedom and a delightful journey into the boundless realm of abstract expression.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ian Donald -->
+        <div class="row">
+            <div class="col-md-6 order-md-1 text-center">
+                <img src="{% static 'ian-donald-artwork.jpg' %}" alt="Ian Donald Artwork" class="img-fluid square-image mb-3">
+            </div>
+            <div class="col-md-6 order-md-2">
+                <div id="ian-donald-info">
+                    <h2>Ian Donald</h2>
+                    <p>Ian Donald, a masterful painter, delicately crafts Scottish landscapes with a unique blend of abstraction and soft
+                    beauty. His artistry transforms rugged terrains into poetic canvases, where the essence of Scotland is rendered with a
+                    gentle touch. Ian's brush dances across the canvas, creating abstract landscapes that evoke a serene and tranquil
+                    ambiance. Through beautifully soft strokes, he captures the mystique of the Scottish countryside, inviting viewers to
+                    immerse themselves in the ethereal beauty of the land. Ian's paintings are a testament to his ability to fuse
+                    abstraction with the serene spirit of nature, creating a harmonious and captivating visual experience.</p>
+                </div>
             </div>
         </div>
     </div>

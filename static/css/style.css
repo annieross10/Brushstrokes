@@ -34,16 +34,19 @@ body {
 
 h1 {
   font-size: 36px;
+  padding: 10px;
   font-weight: bold;
 }
 
 h2 {
   font-size: 24px;
+  padding:10px;
   font-weight: normal;
 }
 
 p {
   font-size: 14px;
+  padding:10px;
   font-weight: normal;
 }
 
@@ -53,8 +56,8 @@ p {
   left: 50%; 
   transform: translateX(-50%); 
   z-index: 1; 
-  width: 120px;
-  height: 60px;
+
+
 }
 
 /* Media queries for smaller screens */
@@ -73,28 +76,19 @@ p {
 @media (max-width: 576px) {
   #gallery-button {
     bottom: 30%;
-    width: 80px;
-    height:auto;
 }
-h1 {
-  font-size: 29px;
-}
-.text-overlay{
-  padding:18px
-}
+
 .image-container {
   position: relative;
   width: 100%;
   text-align: center;
   height: 100vh; 
-  overflow: hidden;
   zoom: 40% 
 }
 
 #main-image {
   max-width: 100%; 
   height: auto; 
-  zoom: 40%
   
 }
 }
@@ -408,6 +402,41 @@ button[type="submit"] {
 .btn-primary:hover {
   background-color: #666b6f;
 }
+
+.square-image {
+  max-width: 100%;  
+  height: auto;     
+  max-height: 500px; 
+  object-fit: cover; 
+  padding: 15px
+}
+
+#donald-romane-info {
+  padding:15px
+}
+
+#brian-lee-info {
+  padding: 15px
+}
+#paula-mcdonald-info {
+  padding: 15px
+}
+#sophie-watson-info {
+  padding:15px
+
+}
+#ian-donald-info {
+  padding:15px
+}
+
+#donald-romane {
+  background-color:#b9b9b942;
+}
+
+#paula-mcdonald {
+  background-color:#b9b9b942;
+}
+
 
 /* User Collection */
 .artwork-collection {
