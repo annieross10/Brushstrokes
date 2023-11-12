@@ -52,7 +52,7 @@ p {
 
 #gallery-button {
   position: absolute;
-  bottom: 75%; 
+  bottom: 75%;
   left: 50%; 
   transform: translateX(-50%); 
   z-index: 1; 
@@ -63,32 +63,32 @@ p {
 /* Media queries for smaller screens */
 @media (max-width: 992px) {
   #gallery-button {
-    bottom: 60%;
+    bottom:40%
   }
 }
 
 @media (max-width: 768px) {
   #gallery-button {
-    bottom: 40%;
+    bottom: 10px
   }
 }
 
 @media (max-width: 576px) {
   #gallery-button {
-    bottom: 30%;
+    bottom: 5%
 }
+
 
 .image-container {
   position: relative;
   width: 100%;
   text-align: center;
-  height: 100vh; 
-  zoom: 80% 
 }
 
 #main-image {
   max-width: 100%; 
   height: auto; 
+  padding-bottom: 80px;
   
 }
 }
