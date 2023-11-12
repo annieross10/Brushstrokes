@@ -26,11 +26,24 @@
             <h2>Saved Artwork</h2>
             <div class="row artwork-collection">
                 {% for artwork in user.saved_artworks.all %}
-                    <div class="col-md-3">
-                        <div class="artwork-entry">
-                            <a href="{{ artwork.get_absolute_url }}">
-                                <img src="{{ artwork.image.url }}" alt="{{ artwork.title }}" class="img-thumbnail">
-                                <p class="collection-title">{{ artwork.title }}</p>
+                    <div class="col-md-3 mb-3">
+                        <div class="art-card">
+                            <a href="{{ artwork.get_absolute_url }}" class="art-thumbnail" data-toggle="modal" data-target="#artworkModal"
+                                data-artist="{{ artwork.artist }}"
+                                data-title="{{ artwork.title }}"
+                                data-medium="{{ artwork.medium }}"
+                                data-description="{{ artwork.description }}"
+                                data-image="{{ artwork.image.url }}"
+                                data-size="{{ artwork.size }}"
+                                data-year_created="{{ artwork.year_created }}"
+                                data-sold="{{ artwork.sold }}"
+                                data-artwork-detail="{{ artwork.get_absolute_url }}"
+                                onclick="showArtworkModal(this)">
+                                <img src="{{ artwork.image.url }}" class="card-img-top" alt="{{ artwork.title }}">
+                                <!-- Add overlay with title -->
+                                <div class="overlay">
+                                    <p>{{ artwork.title }}</p>
+                                </div>
                             </a>
                             <button class="btn btn-danger remove-artwork" data-artwork-id="{{ artwork.id }}">Remove</button>
                         </div>
