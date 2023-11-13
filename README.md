@@ -1,6 +1,23 @@
 # Brushstrokes
 
+Welcome to Brushstrokes, your gateway to a vibrant online art gallery showcasing the talent of Glasgow's local artists. This platform serves as both an art blog and a digital exhibition space, providing a canvas for creativity to flourish. Whether you're an art enthusiast, collector, or simply curious about the diverse artistic expressions emerging from Glasgow, Brushstrokes invites you to explore, connect, and celebrate the rich tapestry of local artistry.
 
+1. [Introduction](#brushstrokes-online-gallery)
+2. [Features](#features)
+3. [Navigation](#navigation)
+4. [Testing](#testing)
+   - [Manual Testing](#manual-testing)
+   - [Automated Testing](#automated-testing)
+5. [Models](#models)
+   - [Artwork Model](#artwork-model)
+   - [Comment Model](#comment-model)
+   - [ContactForm Model](#contactform-model)
+6. [UX Design](#ux-design)
+   - [Wireframes](#wireframes)
+   - [Mockups](#mockups)
+   - [Diagrams](#diagrams)
+
+![Brushstrokes responsive design](static/screenshots/responsive-design-screenshot.png)
 
 ## Exisiting Features
 ### Navigation Bar
@@ -304,12 +321,52 @@ I've thoroughly tested the application manually to ensure its functionality and 
 #### Accessibility 
  - I confirmed that the colours and fonts chosen are easy to read and accessible by running them through Lighthouse in Devtools.
 
+## Models
+### Artwork Model
+
+**Purpose:** Represents an artwork in the gallery.
+
+**Fields:**
+- `title` (CharField): The title of the artwork.
+- `artist` (CharField): The name of the artist.
+- `created_on` (DateTimeField): The date and time the artwork was created.
+- `description` (TextField): A detailed description of the artwork.
+- ... (list other fields)
+
+**Relationships:**
+- `saved_by` (ManyToManyField to User): Users who have saved this artwork.
+
+**Validations:**
+- The `year_created` field should not exceed the current year.
+
+**Special Methods:**
+- Custom `save` method to check and validate the `year_created` before saving.
+
+**Model Instances:**
+```python
+# Example of creating an Artwork instance
+artwork = Artwork(
+    title='Serenity in Nature',
+    artist='John Doe',
+    created_on=timezone.now(),
+    description='A serene landscape capturing the beauty of nature.',
+    year_created=2022,
+    status=1,  # Published
+)
+artwork.save()
+
+
 
 ### Bugs
 #### Solved Bugs
 
 ### Unfixed Bugs
 No unfixed bugs
+
+
+
+
+
 
 ## Deployment
 This project was deployed on Heroku.
