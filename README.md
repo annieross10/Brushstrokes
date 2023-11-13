@@ -2,22 +2,50 @@
 
 Welcome to Brushstrokes, your gateway to a vibrant online art gallery showcasing the talent of Glasgow's local artists. This platform serves as both an art blog and a digital exhibition space, providing a canvas for creativity to flourish. Whether you're an art enthusiast, collector, or simply curious about the diverse artistic expressions emerging from Glasgow, Brushstrokes invites you to explore, connect, and celebrate the rich tapestry of local artistry.
 
-1. [Introduction](#brushstrokes-online-gallery)
-2. [Features](#features)
-3. [Navigation](#navigation)
-4. [Testing](#testing)
-   - [Manual Testing](#manual-testing)
-   - [Automated Testing](#automated-testing)
-5. [Models](#models)
-   - [Artwork Model](#artwork-model)
-   - [Comment Model](#comment-model)
-   - [ContactForm Model](#contactform-model)
-6. [UX Design](#ux-design)
-   - [Wireframes](#wireframes)
-   - [Mockups](#mockups)
-   - [Diagrams](#diagrams)
-
 ![Brushstrokes responsive design](static/screenshots/responsive-design-screenshot.png)
+
+## Table of Contents
+1. [Existing Features](#existing-features)
+   1. [Navigation Bar](#navigation-bar)
+   2. [Home Page](#home-page)
+   3. [About Section](#about-section)
+   4. [Contact](#contact)
+   5. [Gallery](#gallery)
+   6. [Artwork Detail](#artwork-detail)
+   7. [Login](#login)
+   8. [Sign Up](#sign-up)
+   9. [Logout](#logout)
+   10. [Account](#account)
+   11. [Save to Collection](#save-to-collection)
+   12. [Commenting](#commenting)
+   13. [Footer](#footer)
+
+2. [Features Left to Implement](#features-left-to-implement)
+   1. [Location Map](#location-map)
+   2. [Artwork Purchase Functionality](#artwork-purchase-functionality)
+
+3. [Testing](#testing)
+   1. [Manual Testing](#manual-testing)
+   2. [Automated Testing](#automated-testing)
+      - [Validator Testing](#validator-testing)
+
+4. [Models](#models)
+   1. [Artwork Model](#artwork-model)
+   2. [Comment Model](#comment-model)
+   3. [Contact Form Submission Model](#contact-form-submission-model)
+
+5. [UX Design](#ux-design)
+   1. [Wireframes](#wireframes)
+   2. [Flow Diagram](#flow-diagram)
+
+6. [Fixed Bugs](#fixed-bugs)
+
+7. [Deployment](#deployment)
+
+8. [Credits](#credits)
+   1. [Content](#content)
+   2. [Media](#media)
+
 
 ## Exisiting Features
 ### Navigation Bar
@@ -30,7 +58,7 @@ Welcome to Brushstrokes, your gateway to a vibrant online art gallery showcasing
 ![Brushstrokes navigation bar user view](static/screenshots/header-user-view-screenshot.png)
 
 
-### Landing Page Image
+### Home Page 
 
 The heart of our platform, the landing page, is a visual symphony that welcomes users with a vibrant and bold background image featuring an array of paintbrushes. This imagery not only sets the artistic tone but also aligns seamlessly with the essence of our online art gallery and blog.
 
@@ -81,7 +109,6 @@ Upon successfully submitting the form, users are greeted with a warm and friendl
 ![Brushstrokes Contact Success](static/screenshots/contact-success-screenshot.png)
 
 
-
 ### Gallery
 
 The Gallery section is the centerpiece of our platform, meticulously organized to showcase the artwork in our gallery and highlight the talents of our local artists in residency.
@@ -128,7 +155,7 @@ The Artwork Detail page offers users an immersive experience, providing a compre
 
 ![Brushstrokes artwork detail](static/screenshots/artwork-detail-screenshot.png)
 
-#### Login
+### Login
 
 The Login page is designed to provide a straightforward and user-friendly experience for users to access their accounts.
 
@@ -155,7 +182,7 @@ The Sign-Up page is crafted with a user-centric design, aiming for simplicity an
 ![Brushstrokes Sign-up](static/screenshots/sign-up-screenshot.png)
 
 
-#### Logout
+### Logout
 
 The Logout page is a key component of ensuring a secure and user-friendly experience for users who wish to end their session.
 
@@ -245,80 +272,155 @@ E-Commerce Integration
 
 I've thoroughly tested the application manually to ensure its functionality and provide a seamless user experience. Here are some of the scenarios I've covered:
 
-#### Authentication
+#### User Login and Logout
 
-1. **User Login and Logout**
+1. **User Login**
    - Navigated to the login page.
    - Entered valid credentials and clicked the login button.
-   - Verified successful redirection to the user dashboard.
-   - Logged out and confirmed a successful logout.
+   - Verified successful redirection to the user account.
 
-2. **Password Recovery**
+2. **Entered Invalid credentials**
+   - Attempted to login with invalid credentials.
+   - Confirmed that the correct messages appear when username and passwords do not match and that login in unsuccessful.
+   - Attempted to login with a form left blank.
+   - Confirmed that the correct messages appear when a form is left blank and login is unsuccessful.
+  
+3. **User Logout**
+   - Navigated to the logout page, clicked logout.
+   - Verified successful redirection to homepage and confirmed a successful logout.
+  
+4. **Password Recovery**
    - Initiated the password recovery process.
    - Received the password recovery email.
    - Followed the link and confirmed the ability to reset the password.
+  
+#### User Sign-up
+5. **Access Sign-up Page**
+  - Navigated to the sign-up page from the home or login page.
+  - Verified that the sign-up page is accessible without errors.
+  - Filled out the sign-up form with valid information (username, email, password).
+  - Clicked the sign-up button.
+  - Verified successful redirection to the user account page.
+
+6. **Unique Username and Email**
+   - Attempted to sign up with a username or email that already exists.
+   - Verified that the system provides appropriate error messages, indicating the need for a unique username and email.
+   
+7. **Password Strength**
+   - Tried signing up with weak or easily guessable passwords.
+   - Checked that the system enforces password strength requirements (e.g., minimum length, special characters) and displays relevant error messages.
+   
+8. **Incomplete Form Submission**
+   - Attempted to submit the sign-up form with missing or incomplete information.
+   - Verified that the system prompts the user to fill in all required fields.
+   
+9. **Navigating from Sign-up to Logout to Login**
+   - After a successful sign-up, navigated to the logout page.
+   - Logged out successfully and navigated to login.
+   - Verified that the login page is accessible and the user can log in with the newly created account.
+
+#### Artwork Modal Pop-up
+
+10. **Modal Display**
+   - Clicked on an artwork from the gallery page to open the modal pop-up.
+   - Verified that the modal displays the relevant details of the selected artwork.
+   - Checked that the modal includes information such as title, artist, medium, and description.
+
+11. **Close Modal**
+   - Clicked on the close button (X) or outside the modal to close it.
+   - Verified that the modal closes without any errors.
+   - Ensured that closing the modal returns the user to the gallery page.
+
+12. **Navigation from Modal**
+   - Clicked on the buttons within the modal (e.g., see more).
+   - Verified that the navigation works as expected, leading to the correct artwork detail.
+
+13. **Gallery Interaction**
+   - Closed the modal and interacted with the gallery page.
+   - Checked that the gallery retains its state (e.g., scroll position, sorting) after closing the modal.
+   - Opened the modal again and confirmed that the correct artwork is displayed.
+
+14. **Responsive Design**
+   - Opened the modal on different devices (desktop, tablet, mobile).
+   - Verified that the modal adapts to different screen sizes, maintaining readability and usability.
 
 #### Artwork Interaction
 
-3. **Viewing Artwork Details**
+15. **Viewing Artwork Details**
    - Visited the gallery page.
    - Clicked on multiple artworks to view their details.
    - Verified that each artwork details page displays the correct information.
    - Ensured smooth navigation back to the gallery.
 
-4. **Saving and Removing Artwork**
+16. **Saving and Removing Artwork**
    - Logged in and navigated to the gallery.
    - Saved a few artworks to my collection.
    - Checked that the saved artworks appear in my account page.
    - Removed an artwork from my collection and confirmed the update.
+  
+17. **Filtering Artworks**
+   - Checked the filtering/search options to view artworks based on title, artists, or medium.
+   - Verified that the filtering and search options produce accurate results.
+   - Verified that if no results are found that the 'no results found message' appears. 
 
 #### Contact Form
 
-5. **Submitting Contact Form**
+18. **Submitting Contact Form**
    - Filled out the contact form with valid data.
    - Submitted the form and checked for successful submission.
    - Verified that the submitted form details are recorded.
   
+19. **Error Handling in Contact Form**
+   - Submitted the contact form with invalid data (e.g., missing required fields, invalid email).
+   - Verified that appropriate error messages are displayed, guiding the user to correct the issues.
+  
 #### Comments Interaction
 
-6. **Viewing Comments**
+20. **Viewing Comments**
    - Navigated to various artworks with comments.
    - Verified that comments are displayed beneath each artwork.
    - Checked for correct rendering of the user's name, comment body, and timestamp.
 
-7. **Submitting Comments**
+21. **Submitting Comments**
    - Logged in and visited an artwork with no comments.
    - Submitted a new comment.
    - Checked that the new comment appears immediately below the artwork.
 
-8. **Comment Verification**
+22. **Comment Verification**
    - Submitted a comment with a different user account.
    - Checked that new comments go through an approval process.
    - Verified that unapproved comments are not visible to other users.
 
-9. **Deleting Own Comments**
+23. **Deleting Own Comments**
    - Logged in and visited an artwork with personal comments.
    - Deleted one's own comment.
    - Verified that the comment is immediately removed from the display.
 
-10. **Comment Interaction for Visitors**
+24. **Comment Interaction for Visitors**
    - Logged out and attempted to submit a comment.
    - Verified that the comment form is not accessible for visitors.
    - Checked that visitors can still view existing comments.
-  
-## Automated Testing 
+
+#### Responsive Design
+
+25. **Device Compatibility**
+   - Accessed the application from different devices (desktop, tablet, mobile).
+   - Verified that the layout and functionality adapt appropriately to different screen sizes.
+     
+26. **Cross-browser Compatibility**
+    - Tested the application on various web browsers (Chrome, Firefox, Safari, Edge).
+    - Ensured consistent functionality and styling across different browsers.
    
 
-
 ### Validator Testing
-
-#### Javascript 
 
 #### CSS
 - No Errors were found when passing though the official [W3C validator](https://jigsaw.w3.org/css-validator/)
 
 #### Accessibility 
  - I confirmed that the colours and fonts chosen are easy to read and accessible by running them through Lighthouse in Devtools.
+
+
 
 ## Models
 ### Artwork Model
@@ -328,75 +430,217 @@ I've thoroughly tested the application manually to ensure its functionality and 
 **Fields:**
 - `title` (CharField): The title of the artwork.
 - `artist` (CharField): The name of the artist.
-- `created_on` (DateTimeField): The date and time the artwork was created.
+- `created_on` (DateTimeField): The date and time the artwork post was created.
 - `description` (TextField): A detailed description of the artwork.
-- ... (list other fields)
+- `medium` (TextField): The type of medium/paint used to create the artwork.
+- `image`(CloudinaryField): A image of the artwork
+- `size`(CharField): size of the artwork.
+- `year_created`(PositiveIntegerField): Year which the artwork was created.
+- `sold`(status_choices): Sold or For Sale
+- `slug`(SlugField): Artwork Slug
+- `saved by`(ManytoManyField): Which users have saved the artwork.
+- `status`(status_choices): Draft or Published. 
 
 **Relationships:**
 - `saved_by` (ManyToManyField to User): Users who have saved this artwork.
 
 **Validations:**
 - The `year_created` field should not exceed the current year.
-
-**Special Methods:**
-- Custom `save` method to check and validate the `year_created` before saving.
+- If selected 'Draft' the artwork will not publish. If selected 'Published' the artwork will be published and seen on the site.
 
 **Model Instances:**
 ### Example of creating an Artwork instance
-artwork = Artwork(
-    title='Serenity in Nature',
-    artist='John Doe',
-    created_on=timezone.now(),
-    description='A serene landscape capturing the beauty of nature.',
-    year_created=2022,
-    status=1,  # Published
-)
-artwork.save()
 
+![Brushstrokes artwork model](static/screenshots/artwork-model-admin.png)
+
+
+### Comment Model
+
+**Purpose:** Represents a comment on an artwork in the gallery.
+
+**Fields:**
+- `artwork` (ForeignKey to Artwork): The artwork to which the comment is associated.
+- `user` (ForeignKey to User): The user who posted the comment.
+- `body` (DateTimeField): (TextField): The content of the comment.
+- `created_on` (DateTimeField): The date and time the comment was posted.
+- `approved` (BooleanField): Indicates whether the comment has been approved.
+
+**Relationships:**
+- `artwork` (ForeignKey to Artwork): Relates each comment to a specific artwork.
+- `user` (ForeignKey to User): Relates each comment to a specific user.
+
+![Brushstrokes comment model](static/screenshots/comment-model-admin.png)
+
+
+### Contact Form Submission Model
+**Purpose:** Represents a submission made through the contact form. 
+
+**Fields:**
+- `name` (CharField): The name of the person making the submission.
+- `email` (EmailField): The email address of the person making the submission.
+- `message` (TextField): The message submitted through the contact form.
+- `created_at` (DateTimeField): The date and time the submission was made.
+
+![Brushstrokes contactform submission model](static/screenshots/contact-form-model-admin.png)
 
 ## UX Design
 
 ### Wireframes
 
-The following wireframes illustrate the initial design concepts for key pages in the Brushstrokes Online Gallery. These wireframes serve as a foundation for the design and layout of the Brushstrokes Online Gallery, providing a visual guide for the development team and ensuring a consistent user experience.
+The following wireframes illustrate the initial design concepts for key pages in the Brushstrokes Online Gallery. These wireframes serve as a foundation for the design and layout of the Brushstrokes Online Gallery, providing a visual guide for the development and ensuring a consistent user experience.
 
-![Brushstrokes Wireframes](/static/screenshots/ux-flow-diagram.png)
+![Brushstrokes Wireframes](/static/screenshots/wireframe-screenshot.png)
 
 ### Flow Diagram
 
 The user experience (UX) design of the Brushstrokes Online Gallery is carefully crafted to guide users seamlessly through various interactions and functionalities. The following user flow outlines key pathways users may take while navigating the platform.
-![Brushstrokes Flow Diagram](/static/screenshots/wireframe-screenshot.png)
+![Brushstrokes Flow Diagram](/static/screenshots/ux-flow-diagram.png)
 
 
 
-### Bugs
-#### Solved Bugs
+## Fixed Bugs
 
-### Unfixed Bugs
+This section outlines the bugs that were identified and resolved during the development of the project. Each bug is described along with the steps taken to fix it.
+
+### Bug 1: Unwanted Messages Displayed on Contact Page
+
+- **Symptoms:** After logging in or out and navigating to the contact page, unexpected login or logout-related messages were displayed, interfering with the intended success message.
+- **Cause:** The global nature of Django's messaging framework was causing messages from the login and logout processes to appear on the contact page.
+- **Resolution:**
+  - Added the `extra_tags='contact-form'` parameter to the `messages.success` call in the view handling the contact form submission.
+  - This additional tag ensures that the success message is specifically associated with the 'contact-form' namespace, preventing interference from other messages.
+- **Testing:** Verified that, after the fix, only messages with the 'contact-form' tag are displayed upon navigating to the contact page after login or logout.
+
+### Bug 2: Invalid Future Year Selection in Artwork Model
+
+- **Symptons** Initially, an issue was identified in the Artwork model where administrators were able to select a future year in the `year_created` field, leading to inaccurate data and potentially causing confusion.
+- **Cause:** The bug was rooted in the lack of validation for the `year_created` field, allowing admins to input any year without restriction.
+- **Resolution:**
+   - Implemented custom validation in the save method of the Artwork model.
+   - The save method now checks if the `year_created` exceeds the current year, and if so, raises a ValidationError preventing the save operation.
+    Code Fix:
+```
+def save(self, *args, **kwargs):
+    current_year = timezone.now().year
+    if self.year_created > current_year:
+        raise ValidationError("Year created cannot exceed the current year.")
+    super(Artwork, self).save(*args, **kwargs)
+```
+- **Testing:** After the implementation, attempting to save an artwork with a future year results in a clear validation error message, ensuring data accuracy.
+
+### Bug 3: Slug and Pathway Confusion in Artwork Detail Page
+
+- **Symptons**
+   - Inconsistencies in the display of the comments section on the Artwork Detail page came from errors arising due to the use of both integer and slug pathways in the URLs.
+- **Cause:**
+   - The Artwork Detail page initially employed a combination of integer and slug-based URLs, leading to confusion in the interpretation of pathways.
+   - The comments section was specifically tied to the integer-based pathway, causing it to be inaccessible when using slug-based URLs.
+- **Resolution:**
+   - URL Modification: Updated the URLs for the Artwork Detail page to use slugs exclusively and removed integer-based pathways to eliminate conflicts and ensure consistency.
+   - Link Updates: Revised all links pointing to the Artwork Detail page to reflect the new slug-based URLs.
+- **Testing:**
+   - Conducted extensive testing to ensure the comments section appeared consistently on the Artwork Detail page.
+   - Verified proper navigation and resolved any errors related to the slug and pathway modifications.
+   
+### Bug 4: Inaccurate Artwork Search Results
+- **Symptons**
+   - The initial implementation of the search functionality on the Artwork page was searching for the artwork title, medium, and description.
+   - Despite attempts to modify the JavaScript for more focused searches on the artist, the search continued to include the entire artwork description.
+   - This led to excessive and less user-friendly search results due to the lengthy nature of artwork descriptions.
+- **Cause:**
+   - The discrepancy was identified in the `views.py` file, where the search query was still configured to include the artwork description.
+- **Resolution:**
+   - Modified the search_view function in `views.py` to prioritize searching for the artist (`artist__icontains`) instead of the description (`description__icontains`).
+```
+def search_view(request):
+    query = request.GET.get('q', '')
+    artworks = Artwork.objects.all()
+
+    if query:
+        artworks = artworks.filter(
+            Q(title__icontains=query) |
+            Q(medium__icontains=query) |
+            Q(artist__icontains=query)
+        )
+
+    context = {
+        'artworks': artworks,
+        'search_query': query,
+    }
+    return render(request, 'gallery.html', context)
+```
+- **Testing:**
+   - Conducted search tests to verify that the search functionality now focuses on the artwork title, medium, and artist, omitting the description.
+   - Ensured that search results align with the desired user-friendly experience.
+
+### Bug 5: Inaccurate Artwork Search Results
+- **Symptons**
+   - When viewing comments in the admin site, the name of the user who submitted the comment was initially not displayed. 
+   - Additionally, upon approval, the comment appeared without a linked user, leading to an incomplete representation in the comment section.
+- **Cause:**
+   - The bug was rooted in the absence of a direct association between the comments and the user who submitted them. The 'name' field in the Comment model was not capturing user information.
+- **Resolution:**
+   - Modified the Comment model, changing the 'name' field to 'user' and adding a ForeignKey relationship to the User model.
+   - Additionally, in the views.py file, specifically in the `post` method, added the line `comment.user = request.user` to ensure the user information is attached to the comment before saving it.
+
+```
+    comment_form = CommentForm(request.POST)
+    if comment_form.is_valid():
+        comment = comment_form.save(commit=False)
+        comment.user = request.user  # Assign the user to the comment
+        comment.artwork = artwork
+        comment.approved = False
+        comment.save()
+        return JsonResponse({'success': True})
+```
+- **Template Update:**
+     - In the artwork_detail template, added the following lines to display the username of the user who posted the comment. And also added a a line to display the username of the logged-in user posting a comment.
+```
+<p><strong>{{ comment.user.username }}</strong> said:</p>
+
+<p>Posting as: {{ user.username }}</p>
+
+```
+- **Testing:**
+   - Verified that after the implementation, the admin site displays the username of the user who submitted the comment, and the comment section on the website accurately reflects the associated user information.
+
+
+## Unfixed Bugs
 No unfixed bugs
-
-
-
 
 
 
 ## Deployment
 This project was deployed on Heroku.
 - Deployment steps:
-    - Create a new Heroku app
-    - Update the config Vars for deployment
-    - Set up Cloudinary Storage
-    - Set up Elephant SQL database
-    - Set Debug = False
-    - Update Requirements
-    - Deploy
+    - **Create a new Heroku app**
+         - Create a new Heroku app using the Heroku Dashboard or the Heroku CLI.
+    - **Update the config Vars for deployment**
+         - In the Heroku app settings, update the configuration variables to match your production environment. This includes database settings, secret keys, and any other environment-specific configurations.
+    - **Set Debug = False**
+         - For enhanced security in the production environment, ensure that the DEBUG configuration in your Django settings is set to False.
+    - **Deploy Your Project:**
+         - Use the Heroku CLI or connect your GitHub repository to trigger the deployment process. Heroku will automatically build and deploy your Django application.
 
+The live site can be found here: (Brushstrokes)[https://brushstrokesbyannie-b5c294aa0510.herokuapp.com/]
 
 
 ## Credits
 ### Content
 - The icons in the footer and links were taken from [Font Awesome](https://fontawesome.com/)
 - The font for the website was taken from [Google Fonts](https://fonts.google.com/)
-
+- The instructins on creating a Django based project and Responsive Design where taken from the 'Hello Django' and 'I think therefore I blog' projects from [Code Institute](https://codeinstitute.net/)
+- Help with creating the popup modal was taken from [this youtube video](https://www.youtube.com/watch?v=5kSdFmqqEaE)
+- For extra help getting started and fixing bugs, [this youtube video(https://www.youtube.com/watch?v=rHux0gMZ3Eg) was used.
+- For help on jquery this [youtube video](https://www.youtube.com/watch?v=QhQ4m5g2fhA)
+- For help with using jquery messages and modal pop up [this site was used](https://www3.ntu.edu.sg/home/ehchua/programming/webprogramming/jQuery_Basics.html)
+- For help creating UX design User Fow chart: [creately](https://creately.com/guides/user-flow-diagram/)
 
  ### Media
+ - The ian-donald-artwork image is taken from [Scott Naismith](https://scottnaismith.com/product/harris-light-limited-edition-print/)
+ - The paula-mcdonald-artwork, sophie-watson-artwork, brian-lee-artwork, donald-romane-artwork, about-image and index-image images are taken from [Unsplash](https://unsplash.com/)
+
+ #### Database Images
+- The artwork image 'Azure Dreams of Aloha' is taken from [Wikiart](https://www.wikiart.org/en/arman-manookian/hawaiian-landscape-1928)
+- The artwork images 'Shades of Dusk' and 'Lights of the Loch' are taken from [Scott Naismith](https://scottnaismith.com/product/harris-light-limited-edition-print/)
+- The artwork images 'Intrigue', 'Perplexed', 'Floral Garden', 'Wild Dreams', 'Flowers of Us', and 'Water Lilly' are taken from [Unsplash](https://unsplash.com/)
