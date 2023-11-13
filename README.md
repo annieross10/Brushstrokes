@@ -328,31 +328,58 @@ I've thoroughly tested the application manually to ensure its functionality and 
 **Fields:**
 - `title` (CharField): The title of the artwork.
 - `artist` (CharField): The name of the artist.
-- `created_on` (DateTimeField): The date and time the artwork was created.
+- `created_on` (DateTimeField): The date and time the artwork post was created.
 - `description` (TextField): A detailed description of the artwork.
-- ... (list other fields)
+- `medium` (TextField): The type of medium/paint used to create the artwork.
+- `image`(CloudinaryField): A image of the artwork
+- `size`(CharField): size of the artwork.
+- `year_created`(PositiveIntegerField): Year which the artwork was created.
+- `sold`(status_choices): Sold or For Sale
+- `slug`(SlugField): Artwork Slug
+- `saved by`(ManytoManyField): Which users have saved the artwork.
+- `status`(status_choices): Draft or Published. 
 
 **Relationships:**
 - `saved_by` (ManyToManyField to User): Users who have saved this artwork.
 
 **Validations:**
 - The `year_created` field should not exceed the current year.
-
-**Special Methods:**
-- Custom `save` method to check and validate the `year_created` before saving.
+- If selected 'Draft' the artwork will not publish. If selected 'Published' the artwork will be published and seen on the site.
 
 **Model Instances:**
 ### Example of creating an Artwork instance
-artwork = Artwork(
-    title='Serenity in Nature',
-    artist='John Doe',
-    created_on=timezone.now(),
-    description='A serene landscape capturing the beauty of nature.',
-    year_created=2022,
-    status=1,  # Published
-)
-artwork.save()
 
+![Brushstrokes artwork model](static/screenshots/artwork-model-admin.png)
+
+
+### Comment Model
+
+**Purpose:** Represents a comment on an artwork in the gallery.
+
+**Fields:**
+- `artwork` (ForeignKey to Artwork): The artwork to which the comment is associated.
+- `user` (ForeignKey to User): The user who posted the comment.
+- `body` (DateTimeField): (TextField): The content of the comment.
+- `created_on` (DateTimeField): The date and time the comment was posted.
+- `approved` (BooleanField): Indicates whether the comment has been approved.
+
+**Relationships:**
+- `artwork` (ForeignKey to Artwork): Relates each comment to a specific artwork.
+- `user` (ForeignKey to User): Relates each comment to a specific user.
+
+![Brushstrokes comment model](static/screenshots/comment-model-admin.png)
+
+
+### Contact Form Submission Model
+**Purpose:** Represents a submission made through the contact form. 
+
+**Fields:**
+- `name` (CharField): The name of the person making the submission.
+- `email` (EmailField): The email address of the person making the submission.
+- `message` (TextField): The message submitted through the contact form.
+- `created_at` (DateTimeField): The date and time the submission was made.
+
+![Brushstrokes contactform submission model](static/screenshots/contact-form-model-admin.png.png)
 
 ## UX Design
 
@@ -360,13 +387,12 @@ artwork.save()
 
 The following wireframes illustrate the initial design concepts for key pages in the Brushstrokes Online Gallery. These wireframes serve as a foundation for the design and layout of the Brushstrokes Online Gallery, providing a visual guide for the development team and ensuring a consistent user experience.
 
-![Brushstrokes Wireframes](/static/screenshots/ux-flow-diagram.png)
+![Brushstrokes Wireframes](/static/screenshots/wireframe-screenshot.png)
 
 ### Flow Diagram
 
 The user experience (UX) design of the Brushstrokes Online Gallery is carefully crafted to guide users seamlessly through various interactions and functionalities. The following user flow outlines key pathways users may take while navigating the platform.
-![Brushstrokes Flow Diagram](/static/screenshots/wireframe-screenshot.png)
-
+![Brushstrokes Flow Diagram](/static/screenshots/ux-flow-diagram.png)
 
 
 ### Bugs
