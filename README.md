@@ -310,7 +310,6 @@ I've thoroughly tested the application manually to ensure its functionality and 
    
 
 
-
 ### Validator Testing
 
 #### Javascript 
@@ -343,8 +342,7 @@ I've thoroughly tested the application manually to ensure its functionality and 
 - Custom `save` method to check and validate the `year_created` before saving.
 
 **Model Instances:**
-```python
-# Example of creating an Artwork instance
+### Example of creating an Artwork instance
 artwork = Artwork(
     title='Serenity in Nature',
     artist='John Doe',
@@ -354,6 +352,20 @@ artwork = Artwork(
     status=1,  # Published
 )
 artwork.save()
+
+
+## UX Design
+
+### Wireframes
+
+The following wireframes illustrate the initial design concepts for key pages in the Brushstrokes Online Gallery. These wireframes serve as a foundation for the design and layout of the Brushstrokes Online Gallery, providing a visual guide for the development team and ensuring a consistent user experience.
+
+![Brushstrokes Wireframes](/static/screenshots/ux-flow-diagram.png)
+
+### Flow Diagram
+
+The user experience (UX) design of the Brushstrokes Online Gallery is carefully crafted to guide users seamlessly through various interactions and functionalities. The following user flow outlines key pathways users may take while navigating the platform.
+![Brushstrokes Flow Diagram](/static/screenshots/wireframe-screenshot.png)
 
 
 
