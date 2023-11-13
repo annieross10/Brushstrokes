@@ -272,74 +272,147 @@ E-Commerce Integration
 
 I've thoroughly tested the application manually to ensure its functionality and provide a seamless user experience. Here are some of the scenarios I've covered:
 
-#### Authentication
+#### User Login and Logout
 
-1. **User Login and Logout**
+1. **User Login**
    - Navigated to the login page.
    - Entered valid credentials and clicked the login button.
-   - Verified successful redirection to the user dashboard.
-   - Logged out and confirmed a successful logout.
+   - Verified successful redirection to the user account.
 
-2. **Password Recovery**
+2. **Entered Invalid credentials**
+   - Attempted to login with invalid credentials.
+   - Confirmed that the correct messages appear when username and passwords do not match and that login in unsuccessful.
+   - Attempted to login with a form left blank.
+   - Confirmed that the correct messages appear when a form is left blank and login is unsuccessful.
+  
+3. **User Logout**
+   - Navigated to the logout page, clicked logout.
+   - Verified successful redirection to homepage and confirmed a successful logout.
+  
+4. **Password Recovery**
    - Initiated the password recovery process.
    - Received the password recovery email.
    - Followed the link and confirmed the ability to reset the password.
+  
+#### User Sign-up
+5. **Access Sign-up Page**
+  - Navigated to the sign-up page from the home or login page.
+  - Verified that the sign-up page is accessible without errors.
+  - Filled out the sign-up form with valid information (username, email, password).
+  - Clicked the sign-up button.
+  - Verified successful redirection to the user account page.
+
+6. **Unique Username and Email**
+   - Attempted to sign up with a username or email that already exists.
+   - Verified that the system provides appropriate error messages, indicating the need for a unique username and email.
+   
+7. **Password Strength**
+   - Tried signing up with weak or easily guessable passwords.
+   - Checked that the system enforces password strength requirements (e.g., minimum length, special characters) and displays relevant error messages.
+   
+8. **Incomplete Form Submission**
+   - Attempted to submit the sign-up form with missing or incomplete information.
+   - Verified that the system prompts the user to fill in all required fields.
+   
+9. **Navigating from Sign-up to Logout to Login**
+   - After a successful sign-up, navigated to the logout page.
+   - Logged out successfully and navigated to login.
+   - Verified that the login page is accessible and the user can log in with the newly created account.
+
+#### Artwork Modal Pop-up
+
+10. **Modal Display**
+   - Clicked on an artwork from the gallery page to open the modal pop-up.
+   - Verified that the modal displays the relevant details of the selected artwork.
+   - Checked that the modal includes information such as title, artist, medium, and description.
+
+11. **Close Modal**
+   - Clicked on the close button (X) or outside the modal to close it.
+   - Verified that the modal closes without any errors.
+   - Ensured that closing the modal returns the user to the gallery page.
+
+12. **Navigation from Modal**
+   - Clicked on the buttons within the modal (e.g., see more).
+   - Verified that the navigation works as expected, leading to the correct artwork detail.
+
+13. **Gallery Interaction**
+   - Closed the modal and interacted with the gallery page.
+   - Checked that the gallery retains its state (e.g., scroll position, sorting) after closing the modal.
+   - Opened the modal again and confirmed that the correct artwork is displayed.
+
+14. **Responsive Design**
+   - Opened the modal on different devices (desktop, tablet, mobile).
+   - Verified that the modal adapts to different screen sizes, maintaining readability and usability.
 
 #### Artwork Interaction
 
-3. **Viewing Artwork Details**
+15. **Viewing Artwork Details**
    - Visited the gallery page.
    - Clicked on multiple artworks to view their details.
    - Verified that each artwork details page displays the correct information.
    - Ensured smooth navigation back to the gallery.
 
-4. **Saving and Removing Artwork**
+16. **Saving and Removing Artwork**
    - Logged in and navigated to the gallery.
    - Saved a few artworks to my collection.
    - Checked that the saved artworks appear in my account page.
    - Removed an artwork from my collection and confirmed the update.
+  
+17. **Filtering Artworks**
+   - Checked the filtering/search options to view artworks based on title, artists, or medium.
+   - Verified that the filtering and search options produce accurate results.
+   - Verified that if no results are found that the 'no results found message' appears. 
 
 #### Contact Form
 
-5. **Submitting Contact Form**
+18. **Submitting Contact Form**
    - Filled out the contact form with valid data.
    - Submitted the form and checked for successful submission.
    - Verified that the submitted form details are recorded.
   
+19. **Error Handling in Contact Form**
+   - Submitted the contact form with invalid data (e.g., missing required fields, invalid email).
+   - Verified that appropriate error messages are displayed, guiding the user to correct the issues.
+  
 #### Comments Interaction
 
-6. **Viewing Comments**
+20. **Viewing Comments**
    - Navigated to various artworks with comments.
    - Verified that comments are displayed beneath each artwork.
    - Checked for correct rendering of the user's name, comment body, and timestamp.
 
-7. **Submitting Comments**
+21. **Submitting Comments**
    - Logged in and visited an artwork with no comments.
    - Submitted a new comment.
    - Checked that the new comment appears immediately below the artwork.
 
-8. **Comment Verification**
+22. **Comment Verification**
    - Submitted a comment with a different user account.
    - Checked that new comments go through an approval process.
    - Verified that unapproved comments are not visible to other users.
 
-9. **Deleting Own Comments**
+23. **Deleting Own Comments**
    - Logged in and visited an artwork with personal comments.
    - Deleted one's own comment.
    - Verified that the comment is immediately removed from the display.
 
-10. **Comment Interaction for Visitors**
+24. **Comment Interaction for Visitors**
    - Logged out and attempted to submit a comment.
    - Verified that the comment form is not accessible for visitors.
    - Checked that visitors can still view existing comments.
-  
-## Automated Testing 
+
+#### Responsive Design
+
+25. **Device Compatibility**
+   - Accessed the application from different devices (desktop, tablet, mobile).
+   - Verified that the layout and functionality adapt appropriately to different screen sizes.
+     
+26. **Cross-browser Compatibility**
+    - Tested the application on various web browsers (Chrome, Firefox, Safari, Edge).
+    - Ensured consistent functionality and styling across different browsers.
    
 
-
 ### Validator Testing
-
-#### Javascript 
 
 #### CSS
 - No Errors were found when passing though the official [W3C validator](https://jigsaw.w3.org/css-validator/)
