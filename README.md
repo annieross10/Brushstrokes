@@ -500,6 +500,36 @@ def search_view(request):
    - Conducted search tests to verify that the search functionality now focuses on the artwork title, medium, and artist, omitting the description.
    - Ensured that search results align with the desired user-friendly experience.
 
+### Bug 5: Inaccurate Artwork Search Results
+- **Symptons**
+   - When viewing comments in the admin site, the name of the user who submitted the comment was initially not displayed. 
+   - Additionally, upon approval, the comment appeared without a linked user, leading to an incomplete representation in the comment section.
+- **Cause:**
+   - The bug was rooted in the absence of a direct association between the comments and the user who submitted them. The 'name' field in the Comment model was not capturing user information.
+- **Resolution:**
+   - Modified the Comment model, changing the 'name' field to 'user' and adding a ForeignKey relationship to the User model.
+   - Additionally, in the views.py file, specifically in the `post` method, added the line `comment.user = request.user` to ensure the user information is attached to the comment before saving it.
+
+```
+    comment_form = CommentForm(request.POST)
+    if comment_form.is_valid():
+        comment = comment_form.save(commit=False)
+        comment.user = request.user  # Assign the user to the comment
+        comment.artwork = artwork
+        comment.approved = False
+        comment.save()
+        return JsonResponse({'success': True})
+```
+- **Template Update:**
+     - In the artwork_detail template, added the following lines to display the username of the user who posted the comment. And also added a a line to display the username of the logged-in user posting a comment.
+```
+<p><strong>{{ comment.user.username }}</strong> said:</p>
+
+<p>Posting as: {{ user.username }}</p>
+
+```
+- **Testing:**
+   - Verified that after the implementation, the admin site displays the username of the user who submitted the comment, and the comment section on the website accurately reflects the associated user information.
 
 
 ## Unfixed Bugs
@@ -507,26 +537,37 @@ No unfixed bugs
 
 
 
-
-
-
 ## Deployment
 This project was deployed on Heroku.
 - Deployment steps:
-    - Create a new Heroku app
-    - Update the config Vars for deployment
-    - Set up Cloudinary Storage
-    - Set up Elephant SQL database
-    - Set Debug = False
-    - Update Requirements
-    - Deploy
+    - **Create a new Heroku app**
+         - Create a new Heroku app using the Heroku Dashboard or the Heroku CLI.
+    - **Update the config Vars for deployment**
+         - In the Heroku app settings, update the configuration variables to match your production environment. This includes database settings, secret keys, and any other environment-specific configurations.
+    - **Set Debug = False**
+         - For enhanced security in the production environment, ensure that the DEBUG configuration in your Django settings is set to False.
+    - **Deploy Your Project:**
+         - Use the Heroku CLI or connect your GitHub repository to trigger the deployment process. Heroku will automatically build and deploy your Django application.
 
+The live site can be found here: (Brushstrokes)[https://brushstrokesbyannie-b5c294aa0510.herokuapp.com/]
 
 
 ## Credits
 ### Content
 - The icons in the footer and links were taken from [Font Awesome](https://fontawesome.com/)
 - The font for the website was taken from [Google Fonts](https://fonts.google.com/)
-
+- The instructins on creating a Django based project and Responsive Design where taken from the 'Hello Django' and 'I think therefore I blog' projects from [Code Institute](https://codeinstitute.net/)
+- Help with creating the popup modal was taken from [this youtube video](https://www.youtube.com/watch?v=5kSdFmqqEaE)
+- For extra help getting started and fixing bugs, [this youtube video(https://www.youtube.com/watch?v=rHux0gMZ3Eg) was used.
+- For help on jquery this [youtube video](https://www.youtube.com/watch?v=QhQ4m5g2fhA)
+- For help with using jquery messages and modal pop up [this site was used](https://www3.ntu.edu.sg/home/ehchua/programming/webprogramming/jQuery_Basics.html)
+- For help creating UX design User Fow chart: [creately](https://creately.com/guides/user-flow-diagram/)
 
  ### Media
+ - The ian-donald-artwork image is taken from [Scott Naismith](https://scottnaismith.com/product/harris-light-limited-edition-print/)
+ - The paula-mcdonald-artwork, sophie-watson-artwork, brian-lee-artwork, donald-romane-artwork, about-image and index-image images are taken from [Unsplash](https://unsplash.com/)
+
+ #### Database Images
+- The artwork image 'Azure Dreams of Aloha' is taken from [Wikiart](https://www.wikiart.org/en/arman-manookian/hawaiian-landscape-1928)
+- The artwork images 'Shades of Dusk' and 'Lights of the Loch' are taken from [Scott Naismith](https://scottnaismith.com/product/harris-light-limited-edition-print/)
+- The artwork images 'Intrigue', 'Perplexed', 'Floral Garden', 'Wild Dreams', 'Flowers of Us', and 'Water Lilly' are taken from [Unsplash](https://unsplash.com/)
