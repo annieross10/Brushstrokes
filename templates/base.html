@@ -2,7 +2,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Brushstrokes By Annie</title>
     <meta charset="UTF-8">
@@ -20,7 +19,7 @@
 
 <body>
 
-        <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">Brushstrokes By Annie</a>
@@ -42,26 +41,26 @@
                 </ul>
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'user_account' %}">Account</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'user_account' %}">Account</a>
+                    </li>
                     {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
+                    </li>
                     {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
 
-
+    <!-- JQueury and Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -69,11 +68,15 @@
         crossorigin="anonymous"></script>
     {% block content %}
     {% endblock %}
-    <footer class="footer bg-light text-center py-3">
+
+    <!-- Footer -->
+    <footer class="footer bg-light text-center py-3 mt-5">
         <div class="container">
             <p>&copy; {{ year }} Brushstrokes By Annie</p>
         </div>
     </footer>
-    </body>
     
+    
+</body>
+
 </html>

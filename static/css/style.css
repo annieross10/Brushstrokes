@@ -9,6 +9,10 @@ body {
   color: white;
 }
 
+/* foorter */
+#footer {
+  padding-top: 20px;
+}
 
 /* Index Page */
 .image-container {

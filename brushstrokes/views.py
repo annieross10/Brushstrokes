@@ -103,9 +103,6 @@ def delete_comment(request, comment_id):
 
     if request.user == comment.user:
         comment.delete()
-        messages.success(request, 'Comment deleted successfully.')
-    else:
-        messages.error(request, 'You are not allowed to delete this comment.')
 
     return redirect('artwork_detail', slug=comment.artwork.slug)
 

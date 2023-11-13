@@ -11,6 +11,7 @@
     </div>
 </section>
 
+<!-- Your Account Info -->
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-6">
@@ -20,6 +21,7 @@
     </div>
 </div>
 
+<!-- Saved Artwork -->
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-12">
@@ -37,26 +39,44 @@
                     </div>
                 {% endfor %}
             </div>
+            <div id="delete-success-message" style="display: none; color: rgb(48, 107, 174);">Artwork successfully removed!</div>
         </div>
     </div>
 </div>
 
 <script>
+    // Handle the "remove artwork" click
     $(document).ready(function () {
         $(".remove-artwork").click(function () {
-            var artworkId = $(this).data("artwork-id");
-            var url = "/remove-artwork/" + artworkId + "/";
+            // Ask for confirmation
+            var confirmDelete = window.confirm("Are you sure you want to delete this saved artwork?");
 
-            var button = $(this);
+            // If user confirms, proceed with the deletion
+            if (confirmDelete) {
+                var artworkId = $(this).data("artwork-id");
+                var url = "/remove-artwork/" + artworkId + "/";
 
-            $.get(url, function (data) {
-                if (data.saved === false) {
-                    button.parent().remove();
-                }
-            });
+                var button = $(this);
+
+                $.get(url, function (data) {
+                    if (data.saved === false) {
+                        // Remove the artwork container
+                        button.parent().remove();
+
+                        // Show the success message
+                        $("#delete-success-message").show();
+
+                        setTimeout(function () {
+                            $("#delete-success-message").hide();
+                        }, 3000);
+                    }
+                });
+            }
         });
     });
 </script>
+
+
 
 {% endblock %}
 

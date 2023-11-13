@@ -17,6 +17,7 @@
     </div>
 </section>
 
+<!-- Displaying Artwork -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 mt-3 artwork-container">
@@ -39,7 +40,6 @@
                                 data-artwork-detail="{{ artwork.get_absolute_url }}"
                                 onclick="showArtworkModal(this)">
                                 <img src="{{ artwork.image.url }}" class="card-img-top" alt="{{ artwork.title }}">
-                                <!-- Add overlay with title -->
                                 <div class="overlay">
                                     <p>{{ artwork.title }}</p>
                                 </div>
@@ -112,7 +112,6 @@
         document.getElementById('artworkYear_created').textContent = year_created;
         document.getElementById('artworkImage').setAttribute('src', image);
 
-        // Set the "See More" link to the slug-based URL
         document.getElementById('artworkDetailLink').setAttribute('href', artworkDetailLink);
 
         const userPosition = window.scrollY;
@@ -142,6 +141,7 @@
         }
     });
 
+    // Handle the "search input"
     document.getElementById('search-button').addEventListener('click', function () {
     const searchInput = document.getElementById('search-input').value.toLowerCase();
     const artworks = document.querySelectorAll('.art-card');
