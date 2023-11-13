@@ -604,6 +604,22 @@ def search_view(request):
 - **Testing:**
    - Verified that after the implementation, the admin site displays the username of the user who submitted the comment, and the comment section on the website accurately reflects the associated user information.
 
+### Bug 6: Inadvertent Exposure of Sensitive Information
+During the development process, I mistakenly committed the `env.py` file, which contained sensitive information such as passwords, Cloudinary API keys, and database keys. Recognizing this error, I promptly removed the file from the repository and created a new one. 
+To address the potential security risk, I took the following steps:
+
+- **Deleted the Mistakenly Committed env.py File:**
+   - I removed the env.py file from the repository, ensuring that the sensitive information it contained was no longer accessible.
+
+- **Generated New Keys and Secrets:**
+   - To further mitigate the risk, I generated new secrets and keys for sensitive information, including a new Django secret key and updated credentials for services like Cloudinary and ElephantSQL.
+
+- **Added env.py to Gitignore:**
+   - I added the new env.py file to the .gitignore file to prevent it from being inadvertently committed to the repository in the future.
+
+
+**Note: It is important to emphasize that the keys and information in the previous commits of env.py are no longer in use. The current sensitive information, including passwords and API keys, has been updated to maintain the security of the application.**
+
 
 ## Unfixed Bugs
 No unfixed bugs
