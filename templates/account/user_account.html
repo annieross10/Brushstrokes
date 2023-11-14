@@ -48,10 +48,8 @@
     // Handle the "remove artwork" click
     $(document).ready(function () {
         $(".remove-artwork").click(function () {
-            // Ask for confirmation
             var confirmDelete = window.confirm("Are you sure you want to delete this saved artwork?");
 
-            // If user confirms, proceed with the deletion
             if (confirmDelete) {
                 var artworkId = $(this).data("artwork-id");
                 var url = "/remove-artwork/" + artworkId + "/";
@@ -60,10 +58,8 @@
 
                 $.get(url, function (data) {
                     if (data.saved === false) {
-                        // Remove the artwork container
                         button.parent().remove();
 
-                        // Show the success message
                         $("#delete-success-message").show();
 
                         setTimeout(function () {
