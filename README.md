@@ -252,6 +252,16 @@ E-Commerce Integration
 - **Payment Options:** Provide multiple payment options for users, including credit/debit cards and other popular payment methods.
 - **Order Confirmation:** Send users an order confirmation email after a successful purchase, summarising their selected artworks and transaction details.
 
+### Forgot Password Link
+Forgot Password Link
+
+- **Link to Forgot Password:** A "Forgot Password" link has been added next to the password input for user convenience. However, please note that the feature is currently under development and may not be fully functional.
+
+**Note:**
+The "Forgot Password" functionality is currently unavailable due to the ongoing development phase. As of now, users will be redirected to a page indicating that this feature is not yet implemented. Work towards implementing this feature is still active and the plan to provide a seamless password recovery process will be in future updates.
+
+![Brushstrokes forget password](static/screenshots/forgot-password-error.png)
+
 
 ## Testing
 ### Manual Testing
