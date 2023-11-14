@@ -23,6 +23,7 @@ Welcome to Brushstrokes, your gateway to a vibrant online art gallery showcasing
 2. [Features Left to Implement](#features-left-to-implement)
    1. [Location Map](#location-map)
    2. [Artwork Purchase Functionality](#artwork-purchase-functionality)
+   3. [Forgot Password Link](#forgot-password-link)
 
 3. [Testing](#testing)
    1. [Manual Testing](#manual-testing)
