@@ -26,9 +26,8 @@ Welcome to Brushstrokes, your gateway to a vibrant online art gallery showcasing
 
 3. [Testing](#testing)
    1. [Manual Testing](#manual-testing)
-   2. [Automated Testing](#automated-testing)
-      - [Validator Testing](#validator-testing)
-
+   2. [Validator Testing](#validator-testing)
+      
 4. [Models](#models)
    1. [Artwork Model](#artwork-model)
    2. [Comment Model](#comment-model)
@@ -57,18 +56,16 @@ Welcome to Brushstrokes, your gateway to a vibrant online art gallery showcasing
 
 ![Brushstrokes navigation bar user view](static/screenshots/header-user-view-screenshot.png)
 
-
 ### Home Page 
 
-The heart of our platform, the landing page, is a visual symphony that welcomes users with a vibrant and bold background image featuring an array of paintbrushes. This imagery not only sets the artistic tone but also aligns seamlessly with the essence of our online art gallery and blog.
+The heart of our platform, the landing page, welcomes users with a vibrant and bold background image featuring an array of paintbrushes. This imagery not only sets the artistic tone but also aligns seamlessly with the essence of our online art gallery and blog.
 
-- **Background Image:** A captivating display of paintbrushes takes center stage, creating an immersive and visually engaging atmosphere.
+- **Background Image:** A captivating display of paintbrushes and paints is the main focus of the image, creating an immersive and visually engaging atmosphere.
 - **Welcome Message:** A warm and inviting welcome message greets users, encouraging them to become a part of our creative community. This friendly invitation sets the tone for a welcoming online space.
 - **Text Overlay Animation:** The text overlay dynamically slides in from the left, adding a touch of animation to capture users' attention. This subtle yet eye-catching movement enhances the overall user experience.
-- **Call to Action:** Positioned prominently below the welcome message is a clear and inviting button. This button serves as a gateway, prompting users to easily explore our main attraction—the gallery. Its strategic placement ensures users can seamlessly embark on a journey through the captivating artworks featured on the site.
+- **Call to Action:** Positioned prominently below the welcome message is a clear and inviting button. This button serves as a gateway, prompting users to easily explore our main attraction—the gallery. Its strategic placement ensures users can easily engage with the features on the site.
 
 ![Brushstrokes Landing Image](static/screenshots/landing-image-screenshot.png)
-
 
 ### About Section
 
@@ -89,12 +86,11 @@ As users scroll, they encounter a curated showcase introducing the Artists in Re
 
 ![Brushstrokes about-artist section](static/screenshots/about-artist-info.png)
 
-
 ### Contact
 
-The Contact section is designed with simplicity and user-friendliness in mind, providing an effortless way for users to connect with us. The overall design prioritizes an intuitive and pleasant user experience, making it easy for individuals to reach out and engage with our platform.
+The Contact section is designed with simplicity and user-friendliness in mind, providing an effortless way for users to connect with us. The overall design prioritises an intuitive and pleasant user experience, making it easy for individuals to reach out and engage with our platform.
 
-- **Simplicity:** A clean and uncluttered design minimizes distractions, keeping the focus on the communication process.
+- **Simplicity:** A clean and uncluttered design minimises distractions, keeping the focus on the communication process.
 - **Accessibility:** The form's straightforward layout ensures accessibility for users of all levels of technical proficiency.
 - **Form Fields:** The form prompts users to enter their name, email, and message, facilitating a straightforward communication process.
 - **Validation:** A user-friendly feature ensures that the form cannot be submitted if any of the fields are left blank, encouraging complete and accurate submissions.
@@ -104,18 +100,16 @@ The Contact section is designed with simplicity and user-friendliness in mind, p
 
 Upon successfully submitting the form, users are greeted with a warm and friendly confirmation message.
 
-- **Confirmation Message:**"Thanks for your email! We will get back to you as soon as we can." This appreciative and reassuring message acknowledges the user's outreach and sets expectations for a timely response.
+- **Confirmation Message:**"Thanks for your email! We will get back to you as soon as we can." This appreciative and reassuring message acknowledges the user's outreach.
 
 ![Brushstrokes Contact Success](static/screenshots/contact-success-screenshot.png)
 
-
 ### Gallery
 
-The Gallery section is the centerpiece of our platform, meticulously organized to showcase the artwork in our gallery and highlight the talents of our local artists in residency.
+The Gallery section is the centerpiece of our platform, organized to showcase the artwork in our gallery and highlight the talents of our local artists in residency.
 
 - **Ordering:** Artworks are displayed in chronological order based on their publication date, providing a chronological journey through our evolving gallery.
 - **Grid Layout:** The gallery adopts a grid layout, with artists presented in rows of four for a visually pleasing and organized display.
-- **Artwork Presentation:**
 
 ![Brushstrokes Gallery](static/screenshots/gallery-screenshot.png)
 
@@ -142,7 +136,6 @@ A powerful search bar at the top of the gallery screen enables users to easily f
 
 - **Search Results:** If no search results are found, a clear message appears, stating "No results found," ensuring users are informed.
 
-
 ### Artwork Detail
 
 The Artwork Detail page offers users an immersive experience, providing a comprehensive description of the artwork they've chosen to explore further.
@@ -166,7 +159,6 @@ The Login page is designed to provide a straightforward and user-friendly experi
 
 ![Brushstrokes Login](static/screenshots/login-screenshot.png)
 
-
 ### Sign Up
 
 The Sign-Up page is crafted with a user-centric design, aiming for simplicity and ease of use.
@@ -178,9 +170,7 @@ The Sign-Up page is crafted with a user-centric design, aiming for simplicity an
 - **Password Reset:** For users who forget their password, a link is available to initiate the password reset process. This ensures a secure and user-friendly way to regain access to their accounts.
 - **Error Handling:** Clear error messages are displayed if there are issues with the provided information, guiding users to correct any errors and successfully complete the signup.
 
-
 ![Brushstrokes Sign-up](static/screenshots/sign-up-screenshot.png)
-
 
 ### Logout
 
@@ -191,7 +181,6 @@ The Logout page is a key component of ensuring a secure and user-friendly experi
 - **Redirect to Homepage:** After confirming the logout, the user is seamlessly redirected to the homepage, offering a smooth transition out of their session.
 
 ![Brushstrokes logout](static/screenshots/logout-screenshot.png)
-
 
 ### Account
 
@@ -205,7 +194,6 @@ The Account page is a personalized space for logged-in users, providing access t
 
 ![Brushstrokes Account](static/screenshots/your-account-screenshot.png)
 
-
 ### Save to Collection
 
 The "Save to Collection" feature enhances the user experience by allowing users to curate their own collection of favorite artworks. Here's how it works:
@@ -215,13 +203,12 @@ The "Save to Collection" feature enhances the user experience by allowing users 
 - **First Click:** When the user clicks the "Save to Collection" button, the button state changes to "Saved to Collection," indicating that the artwork has been added to the user's collection. Simultaneously, the selected artwork is saved to the user's collection in their Account page.
 - **Second Click:** If the user clicks the button again (now labeled "Saved to Collection"), the button state reverts to "Save to Collection." Additionally, the selected artwork is removed from the user's collection in their Account page.
 
-
 ![Brushstrokes Save to Collection](static/screenshots/save-to-collection-screenshot.png) ![Brushstrokes Saved to Collection](static/screenshots/saved-collection-screenshot.png)
 
 
 ### Commenting
 
-The Commenting feature is designed to foster user engagement and interaction with artworks. Here's an overview of how the feature operates:
+The Commenting feature is designed to encourage user engagement and interaction with artworks. Here's an overview of how the feature operates:
 
 - **Visibility for Logged-In Users:** Comments are visible to users who are logged in. Visitors without an account can view existing comments but are unable to post or see the comment form.
 - **Comment Form**: Logged-in users can see and interact with the comment form beneath the artwork details to share their thoughts.
@@ -229,7 +216,7 @@ The Commenting feature is designed to foster user engagement and interaction wit
 - **Admin Verification:** Comments are not immediately visible to all users. Admin verification is required to ensure the comments meet community guidelines.
 - **User Introduction:** Once verified, comments are introduced by the user's name, followed by "user said:" for a personalized touch.
 
-![Brushstrokes comment](static/screenshots/comment-approval-screenshot.png)
+![Brushstrokes comment](comment-approval-screenshot.png)
 
 - **Comment Deletion:** Users have the ability to delete their own comments. A delete option is available next to each comment they posted.
 - **No Deletion for Others:** Users are unable to delete comments made by other users. This ensures the integrity of the comment section.
@@ -238,7 +225,6 @@ The Commenting feature is designed to foster user engagement and interaction wit
 
 - **Simplicity:** The design of the comment section is intentionally kept simple for ease of use and a clean aesthetic.
 - **Eye-Catching Elements:** While maintaining simplicity, the design incorporates eye-catching elements to draw attention to the comments without overwhelming the user.
-
 
 ### Footer
 
@@ -264,7 +250,7 @@ E-Commerce Integration
 - **Artwork Details:** Include detailed information on each artwork's page, such as price.
 - **Secure Checkout:** Develop a secure checkout process, ensuring the safety of users' payment information.
 - **Payment Options:** Provide multiple payment options for users, including credit/debit cards and other popular payment methods.
-- **Order Confirmation:** Send users an order confirmation email after a successful purchase, summarizing their selected artworks and transaction details.
+- **Order Confirmation:** Send users an order confirmation email after a successful purchase, summarising their selected artworks and transaction details.
 
 
 ## Testing
@@ -384,7 +370,7 @@ I've thoroughly tested the application manually to ensure its functionality and 
 21. **Submitting Comments**
    - Logged in and visited an artwork with no comments.
    - Submitted a new comment.
-   - Checked that the new comment appears immediately below the artwork.
+   - Checked that the new comment doesn't appear immediately below the artwork and needs to be authorised first.
 
 22. **Comment Verification**
    - Submitted a comment with a different user account.
@@ -394,7 +380,7 @@ I've thoroughly tested the application manually to ensure its functionality and 
 23. **Deleting Own Comments**
    - Logged in and visited an artwork with personal comments.
    - Deleted one's own comment.
-   - Verified that the comment is immediately removed from the display.
+   - Verified that the comment is immediately removed from the display after confirming deletion.
 
 24. **Comment Interaction for Visitors**
    - Logged out and attempted to submit a comment.
@@ -410,8 +396,8 @@ I've thoroughly tested the application manually to ensure its functionality and 
 26. **Cross-browser Compatibility**
     - Tested the application on various web browsers (Chrome, Firefox, Safari, Edge).
     - Ensured consistent functionality and styling across different browsers.
-   
 
+   
 ### Validator Testing
 
 #### CSS
@@ -419,7 +405,6 @@ I've thoroughly tested the application manually to ensure its functionality and 
 
 #### Accessibility 
  - I confirmed that the colours and fonts chosen are easy to read and accessible by running them through Lighthouse in Devtools.
-
 
 
 ## Models
@@ -487,15 +472,17 @@ I've thoroughly tested the application manually to ensure its functionality and 
 
 ### Wireframes
 
-The following wireframes illustrate the initial design concepts for key pages in the Brushstrokes Online Gallery. These wireframes serve as a foundation for the design and layout of the Brushstrokes Online Gallery, providing a visual guide for the development and ensuring a consistent user experience.
+I started planning the design of the website using basic wireframes. My goal was to keep things simple, ensuring the site is easy to navigate and read. I prefer a clean look without unnecessary clutter. The wireframes provided below represent the initial steps in shaping the design, giving a straightforward preview of how the website structure began to take form.
 
 ![Brushstrokes Wireframes](/static/screenshots/wireframe-screenshot.png)
 
 ### Flow Diagram
 
 The user experience (UX) design of the Brushstrokes Online Gallery is carefully crafted to guide users seamlessly through various interactions and functionalities. The following user flow outlines key pathways users may take while navigating the platform.
-![Brushstrokes Flow Diagram](/static/screenshots/ux-flow-diagram.png)
 
+The user begins entering the site to the landing site, where they are met wih options and decisions to take throughout the site. They are able to view artwork as a visitor: if they wish to benefit from the rest of the site features, they must create an account.
+
+![Brushstrokes Flow Diagram](/static/screenshots/ux-flow-diagram.png)
 
 
 ## Fixed Bugs
@@ -604,25 +591,40 @@ def search_view(request):
 - **Testing:**
    - Verified that after the implementation, the admin site displays the username of the user who submitted the comment, and the comment section on the website accurately reflects the associated user information.
 
+### Bug 6: Inadvertent Exposure of Sensitive Information
+During the development process, I mistakenly committed the `env.py` file, which contained sensitive information such as passwords, Cloudinary API keys, and database keys. Recognizing this error, I promptly removed the file from the repository and created a new one. 
+To address the potential security risk, I took the following steps:
+
+- **Deleted the Mistakenly Committed env.py File:**
+   - I removed the env.py file from the repository, ensuring that the sensitive information it contained was no longer accessible.
+
+- **Generated New Keys and Secrets:**
+   - To further mitigate the risk, I generated new secrets and keys for sensitive information, including a new Django secret key and updated credentials for services Cloudinary and ElephantSQL.
+
+- **Added env.py to Gitignore:**
+   - I added the new env.py file to the .gitignore file to prevent it from being inadvertently committed to the repository in the future.
+
+
+**Note: It is important to emphasize that the keys and information in the previous commits of env.py are no longer in use. The current sensitive information, including passwords and API keys, has been updated to maintain the security of the application.**
+
 
 ## Unfixed Bugs
 No unfixed bugs
 
 
-
 ## Deployment
 This project was deployed on Heroku.
 - Deployment steps:
-    - **Create a new Heroku app**
-         - Create a new Heroku app using the Heroku Dashboard or the Heroku CLI.
+    - **Created a new Heroku app**
+         - Created a new Heroku app using Heroku.
     - **Update the config Vars for deployment**
-         - In the Heroku app settings, update the configuration variables to match your production environment. This includes database settings, secret keys, and any other environment-specific configurations.
+         - In the Heroku app settings, I updated the configuration variables to match my production environment. This included database settings, secret keys, and any other environment-specific configurations.
     - **Set Debug = False**
-         - For enhanced security in the production environment, ensure that the DEBUG configuration in your Django settings is set to False.
-    - **Deploy Your Project:**
-         - Use the Heroku CLI or connect your GitHub repository to trigger the deployment process. Heroku will automatically build and deploy your Django application.
+         - For enhanced security in the production environment, I ensured that the DEBUG configuration in my Django settings is set to False.
+    - **Deploy My Project:**
+         - Deployed project to Heroku.
 
-The live site can be found here: (Brushstrokes)[https://brushstrokesbyannie-b5c294aa0510.herokuapp.com/]
+The live site can be found here: [Brushstrokesbyannie](https://brushstrokesbyannie-b5c294aa0510.herokuapp.com/)
 
 
 ## Credits
