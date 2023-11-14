@@ -18,7 +18,7 @@ def your_view(request):
     return render(request, 'base.html', {'year': current_year})
 
 # Index
-def index(request):
+def index_view(request):
     return render(request, 'index.html')
 
 # About
@@ -31,9 +31,7 @@ def contact_view(request):
 
 # Gallery
 def gallery_view(request):
-    artworks = Artwork.objects.filter(status=1)  
-    print(artworks)
-    
+    artworks = Artwork.objects.filter(status=1).order_by('-created_on')
     return render(request, 'gallery.html', {'artworks': artworks})
 
 # Contact Form
@@ -66,7 +64,7 @@ def contact_form(request):
 # Artwork 
 class ArtworkDetail(View):
     def get(self, request, slug, *args, **kwargs):
-        queryset = Artwork.objects.filter(status=1)
+        queryset = Artwork.objects.filter(status=1).order_by('-created_on')
         artwork = get_object_or_404(queryset, slug=slug)
         comments = Comment.objects.filter(artwork=artwork, approved=True).order_by('created_on')
         comment_form = CommentForm()
@@ -107,16 +105,6 @@ def delete_comment(request, comment_id):
     return redirect('artwork_detail', slug=comment.artwork.slug)
 
 # Artwork List
-class ArtworkList(ListView):
-    model = Artwork
-    queryset = Artwork.objects.filter(status=1).order_by('-created_on')
-    template_name = 'index.html'
-    context_object_name = 'artworks'
-    paginate_by = 6
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
 
 # User Acount
 @login_required
